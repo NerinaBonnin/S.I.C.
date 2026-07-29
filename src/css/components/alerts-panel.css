@@ -1,0 +1,65 @@
+/* ==========================================================================
+   COMPONENTE: Boletín de alertas del estado
+   ========================================================================== */
+
+#alerts-panel {
+  padding-inline: var(--space-5);
+  padding-block: var(--space-2);
+  margin-block: var(--space-5) var(--space-10);
+}
+
+.alert {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid rgba(123, 189, 232, 0.15);
+}
+
+.alert:last-child {
+  border-bottom: none;
+}
+
+.alert__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: var(--glow-sm);
+}
+
+.alert--warning .alert__indicator {
+  background: #f2c14e;
+  box-shadow: 0 0 10px rgba(242, 193, 78, 0.5);
+}
+
+.alert--danger .alert__indicator {
+  background: var(--color-danger);
+  box-shadow: var(--glow-danger);
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+.alert__time {
+  white-space: nowrap;
+}
+
+.alert__message {
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert--danger .alert__indicator {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .alert {
+    grid-template-columns: auto 1fr;
+  }
+
+  .alert__time {
+    grid-column: 1 / -1;
+  }
+}

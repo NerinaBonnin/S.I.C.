@@ -1,0 +1,397 @@
+@import './variables.css';
+@import './components/stats-hud.css';
+@import './components/victor-card.css';
+@import './components/alerts-panel.css';
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg-void);
+  background-image:
+    radial-gradient(ellipse at top, rgba(123, 189, 232, 0.08), transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(123, 189, 232, 0.02) 0px,
+      rgba(123, 189, 232, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   ACCESIBILIDAD
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-panel);
+  color: var(--color-text-bright);
+  border: var(--border-thin-strong);
+  border-radius: var(--radius-md);
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-void-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-panel);
+  border: 2px solid var(--color-bg-void-deep);
+  border-radius: var(--radius-lg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dim);
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA
+   ========================================================================== */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: var(--lh-tight);
+  color: var(--color-text-bright);
+  text-transform: uppercase;
+}
+
+.data-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   LAYOUT BASE
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+/* ==========================================================================
+   UTILIDADES: GLASSMORPHISM + GLOW
+   ========================================================================== */
+.glass-panel {
+  position: relative;
+  background: var(--glass-fill);
+  border: var(--border-thin);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-panel--interactive {
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.glass-panel--interactive:hover,
+.glass-panel--interactive:focus-within {
+  border-color: var(--glass-border-strong);
+  box-shadow: var(--glow-sm);
+  transform: translateY(-2px);
+}
+
+/* Esquinas tipo "HUD corner bracket" reutilizables sobre glass-panel */
+.hud-corners::before,
+.hud-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-accent);
+  opacity: 0.8;
+}
+
+.hud-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.hud-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.glow-text {
+  text-shadow: var(--glow-sm);
+}
+
+/* ==========================================================================
+   HEADER / NAV PRINCIPAL
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 29, 57, 0.75);
+  border-bottom: var(--border-thin);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  letter-spacing: 0.08em;
+}
+
+.brand__indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: var(--glow-md);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.main-nav {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.main-nav a {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding-block: var(--space-2);
+  transition: color var(--transition-fast);
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--color-accent);
+  box-shadow: var(--glow-sm);
+  transition: width var(--transition-base);
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current='page'] {
+  color: var(--color-text-bright);
+}
+
+.main-nav a:hover::after,
+.main-nav a[aria-current='page']::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO / TYPING EFFECT
+   ========================================================================== */
+.hero {
+  padding-block: var(--space-10) var(--space-8);
+  text-align: center;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-accent-dim);
+  letter-spacing: 0.2em;
+}
+
+.typing-line {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fs-md), 3vw, var(--fs-lg));
+  color: var(--color-text-bright);
+  margin-top: var(--space-3);
+}
+
+.typing-line__cursor {
+  display: inline-block;
+  width: 0.55ch;
+  margin-left: 2px;
+  background: var(--color-accent);
+  box-shadow: var(--glow-sm);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: var(--glow-sm);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: var(--glow-md);
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand__indicator,
+  .typing-line__cursor {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   ENCABEZADO DE PÁGINA INTERIOR (Tributos, Distritos, Capitolio, Juegos)
+   ========================================================================== */
+.page-heading {
+  padding-block: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.page-heading h1 {
+  font-size: var(--fs-2xl);
+  margin-top: var(--space-2);
+}
+
+.page-heading__desc {
+  max-width: 60ch;
+  margin: var(--space-3) auto 0;
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   ESTADO: módulo en construcción (scaffold de páginas pendientes)
+   ========================================================================== */
+.under-construction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 640px;
+  margin: 0 auto var(--space-10);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.under-construction__icon {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xl);
+  color: var(--color-accent);
+  text-shadow: var(--glow-sm);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 720px) {
+  .main-nav {
+    gap: var(--space-4);
+  }
+
+  .hero {
+    padding-block: var(--space-8) var(--space-6);
+  }
+}

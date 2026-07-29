@@ -1,7 +1,8 @@
 {
-  "name": "s-i-c",
-  "version": "0.0.0",
+  "name": "panem-central-database",
   "private": true,
+  "version": "0.1.0",
+  "description": "Panem Central Intelligence System — Base de Datos del Capitolio (Los Juegos del Hambre)",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +10,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.1.1"
+    "vite": "^6.0.0"
   }
 }
