@@ -1,0 +1,142 @@
+{
+  "metaEstadisticas": {
+    "edicionesRegistradas": 75,
+    "distritosEnProduccion": 12,
+    "vasallajesRealizados": 3,
+    "ultimaActualizacion": "75 A.T."
+  },
+  "tributos": [
+    {
+      "id": "t-d12-katniss",
+      "nombre": "Katniss Everdeen",
+      "distrito": 12,
+      "edicion": 74,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "Tiro con arco / supervivencia en bosque",
+      "descripcion": "Voluntaria en lugar de su hermana menor. Reconocida por su puntería con el arco y su capacidad de improvisar recursos en entornos hostiles.",
+      "imagen": "/assets/img/tributos/katniss.jpg",
+      "signosVitales": {
+        "ritmoCardiaco": 89,
+        "temperaturaF": 98.6,
+        "presion": "118/76"
+      }
+    },
+    {
+      "id": "t-d2-cato",
+      "nombre": "Cato",
+      "distrito": 2,
+      "edicion": 74,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "Combate cuerpo a cuerpo / manejo de espada",
+      "descripcion": "Tributo profesional entrenado desde la infancia en el Centro de Adiestramiento del Distrito 2. Líder natural dentro de la alianza de profesionales.",
+      "imagen": "/assets/img/tributos/cato.jpg",
+      "signosVitales": {
+        "ritmoCardiaco": 87,
+        "temperaturaF": 98.9,
+        "presion": "120/78"
+      }
+    },
+    {
+      "id": "t-d12-haymitch",
+      "nombre": "Haymitch Abernathy",
+      "distrito": 12,
+      "edicion": 50,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "Improvisación táctica / lectura de la arena",
+      "descripcion": "Vencedor del Segundo Vasallaje de los Veinticinco. Utilizó el campo de fuerza de la arena a su favor en un movimiento que el Capitolio consideró un acto de desafío.",
+      "imagen": "/assets/img/tributos/haymitch.jpg",
+      "signosVitales": {
+        "ritmoCardiaco": 91,
+        "temperaturaF": 98.4,
+        "presion": "124/80"
+      }
+    },
+    {
+      "id": "t-d11-rue",
+      "nombre": "Rue",
+      "distrito": 11,
+      "edicion": 74,
+      "edad": 12,
+      "estado": "Caído",
+      "especialidad": "Sigilo / trepado de árboles / botánica aplicada",
+      "descripcion": "La tributo más joven de su edición. Su agilidad entre los árboles y su conocimiento de plantas del Distrito 11 la convirtieron en una aliada clave durante los primeros días de la arena.",
+      "imagen": "/assets/img/tributos/rue.jpg",
+      "signosVitales": {
+        "ritmoCardiaco": 102,
+        "temperaturaF": 98.7,
+        "presion": "110/70"
+      }
+    },
+    {
+      "id": "t-d4-finnick",
+      "nombre": "Finnick Odair",
+      "distrito": 4,
+      "edicion": 65,
+      "edad": 14,
+      "estado": "Vencedor",
+      "especialidad": "Manejo de tridente / natación",
+      "descripcion": "Uno de los vencedores más jóvenes registrados en el sistema. Su dominio del tridente, producto del entrenamiento pesquero del Distrito 4, definió su estrategia dentro de la arena.",
+      "imagen": "/assets/img/tributos/finnick.jpg",
+      "signosVitales": {
+        "ritmoCardiaco": 84,
+        "temperaturaF": 98.5,
+        "presion": "116/74"
+      }
+    }
+  ],
+  "boletines": [
+    {
+      "id": "b-001",
+      "nivel": "alerta",
+      "timestamp": "75:04:12:09",
+      "mensaje": "Cosecha del Distrito 12 programada. Verificar transmisión en vivo antes de las 08:00."
+    },
+    {
+      "id": "b-002",
+      "nivel": "advertencia",
+      "timestamp": "75:04:10:22",
+      "mensaje": "Fluctuación detectada en el campo de fuerza de la Arena Central. Equipo técnico notificado."
+    },
+    {
+      "id": "b-003",
+      "nivel": "info",
+      "timestamp": "75:04:09:15",
+      "mensaje": "Actualización de expedientes de vencedores completada sin incidentes."
+    },
+    {
+      "id": "b-004",
+      "nivel": "info",
+      "timestamp": "75:04:07:03",
+      "mensaje": "Mantenimiento programado en el sistema de monitoreo biométrico, sala de control principal."
+    }
+  ],
+  "distritos": [
+    {
+      "id": 12,
+      "nombre": "Distrito 12",
+      "region": "Antigua Appalachia",
+      "especialidad": "Minería de carbón",
+      "historia": "El distrito más pobre y menos poblado de Panem, encargado de extraer el carbón que alimenta la industria energética del Capitolio. Vigilancia históricamente laxa antes del 74° Juego.",
+      "vencedoresHistoricos": ["Haymitch Abernathy", "Katniss Everdeen", "Peeta Mellark"]
+    },
+    {
+      "id": 2,
+      "nombre": "Distrito 2",
+      "region": "Antiguas Montañas Rocosas",
+      "especialidad": "Cantería, armamento y entrenamiento militar",
+      "historia": "Sede del Centro de Adiestramiento profesional y aliado histórico del Capitolio. Sus tributos suelen presentarse como voluntarios entrenados desde la niñez.",
+      "vencedoresHistoricos": ["Cato", "Enobaria", "Brutus"]
+    },
+    {
+      "id": 11,
+      "nombre": "Distrito 11",
+      "region": "Antiguo sureste de EE. UU.",
+      "especialidad": "Agricultura",
+      "historia": "El distrito más extenso de Panem, responsable de la producción agrícola que abastece al Capitolio. Sometido a una vigilancia particularmente estricta.",
+      "vencedoresHistoricos": ["Chaff", "Seeder"]
+    }
+  ]
+}

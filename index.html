@@ -1,13 +1,88 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>s-i-c</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panem Central Database // Sistema de Inteligencia del Capitolio</title>
+  <meta
+    name="description"
+    content="Base de datos central del Capitolio: tributos, distritos, historia de Panem y registro de los Juegos del Hambre."
+  />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Tipografías: Orbitron (display), Rajdhani (cuerpo), Share Tech Mono (data/terminal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ======================= HEADER / NAVEGACIÓN ======================= -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand" aria-label="Panem Central Database, inicio">
+        <span class="brand__indicator" aria-hidden="true"></span>
+        PANEM // C.I.S.
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/" aria-current="page">Dashboard</a>
+        <a href="/tributos/">Tributos</a>
+        <a href="/distritos/">Distritos</a>
+        <a href="/capitolio/">El Capitolio</a>
+        <a href="/juegos/">Los Juegos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================= HERO / TYPING EFFECT ======================= -->
+    <section class="hero container" aria-labelledby="hero-heading">
+      <p class="hero__eyebrow">NIVEL DE ACCESO: OBSERVADOR // SESIÓN VERIFICADA</p>
+      <h1 id="hero-heading" class="sr-only">Capitol Central Database — Acceso Restringido</h1>
+      <p class="typing-line" id="typing-target" aria-hidden="true">
+        <span id="typing-text"></span><span class="typing-line__cursor"></span>
+      </p>
+      <!-- Texto real para lectores de pantalla, ya que el efecto de tecleo es solo visual -->
+      <p class="sr-only" role="status">CAPITOL CENTRAL DATABASE // ACCESO RESTRINGIDO</p>
+    </section>
+
+    <!-- ======================= PANEL DE ESTADÍSTICAS (HUD) ======================= -->
+    <section class="container" aria-labelledby="stats-heading">
+      <h2 id="stats-heading" class="sr-only">Estadísticas generales del sistema</h2>
+      <div id="stats-grid" class="stats-grid" data-component="stats-hud">
+        <!-- Los módulos de estadística (ediciones, distritos, vasallajes) se
+             renderizan dinámicamente desde panemData.json vía JS. -->
+      </div>
+    </section>
+
+    <!-- ======================= VENCEDOR DESTACADO ======================= -->
+    <section class="container" aria-labelledby="victor-heading">
+      <h2 id="victor-heading" class="data-label">Expediente destacado // aleatorio</h2>
+      <div id="featured-victor" class="glass-panel hud-corners" data-component="featured-victor">
+        <!-- Ficha biográfica de un vencedor aleatorio, renderizada por JS al cargar. -->
+      </div>
+    </section>
+
+    <!-- ======================= BOLETÍN DE ALERTAS ======================= -->
+    <section class="container" aria-labelledby="alerts-heading">
+      <h2 id="alerts-heading" class="data-label">Boletín del estado</h2>
+      <div id="alerts-panel" class="glass-panel" data-component="alerts-panel" role="log" aria-live="polite">
+        <!-- Notificaciones tipo comunicado militar, renderizadas por JS. -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="container" style="padding-block: var(--space-8); text-align:center;">
+    <p class="data-label">PANEM CENTRAL INTELLIGENCE SYSTEM &copy; 75 A.T. — Uso interno exclusivo</p>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
 </html>

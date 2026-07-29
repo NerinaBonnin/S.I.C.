@@ -1,0 +1,184 @@
+/* ==========================================================================
+   PÁGINA: Tributos
+   ========================================================================== */
+
+.page-heading {
+  padding-block: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.page-heading h1 {
+  font-size: var(--fs-2xl);
+  margin-top: var(--space-2);
+}
+
+.page-heading__desc {
+  max-width: 60ch;
+  margin: var(--space-3) auto 0;
+  color: var(--color-text);
+}
+
+/* ---- Filtros --------------------------------------------------------- */
+.tribute-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: flex-end;
+  padding-block: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: var(--border-thin);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border: none;
+  padding: 0;
+}
+
+.filter-chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  border: var(--border-thin);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+    background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filter-chip:hover {
+  border-color: var(--glass-border-strong);
+}
+
+.filter-chip.is-active {
+  color: var(--color-bg-void);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-sm);
+}
+
+.filter-select {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-text-bright);
+  background: var(--glass-fill);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+}
+
+.tribute-count {
+  margin-bottom: var(--space-4);
+}
+
+/* ---- Grilla de tarjetas ------------------------------------------------ */
+.tribute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-5);
+  padding-bottom: var(--space-10);
+}
+
+.tribute-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  text-align: left;
+}
+
+.tribute-card__scan {
+  width: 100%;
+  height: 72px;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-md);
+  background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-void-deep));
+  border: var(--border-thin);
+}
+
+.tribute-card__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--color-text-bright);
+}
+
+/* ---- Modal: ficha biométrica -------------------------------------------- */
+.tribute-modal {
+  width: min(560px, 92vw);
+  padding: 0;
+  color: var(--color-text);
+  background: var(--color-bg-void);
+  border: var(--border-thin-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glow-lg);
+}
+
+.tribute-modal::backdrop {
+  background: rgba(0, 13, 26, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.tribute-modal[open] {
+  animation: modal-in var(--transition-base) ease-out;
+}
+
+.tribute-modal #tribute-modal-content {
+  position: relative;
+  padding: var(--space-6);
+}
+
+.tribute-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--color-text);
+  border: var(--border-thin);
+  border-radius: 50%;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tribute-modal__close:hover,
+.tribute-modal__close:focus-visible {
+  color: var(--color-text-bright);
+  border-color: var(--glass-border-strong);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tribute-modal[open] {
+    animation: none;
+  }
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (max-width: 480px) {
+  .tribute-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

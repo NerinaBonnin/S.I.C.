@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tributos // Panem Central Database</title>
+  <meta
+    name="description"
+    content="Registro de tributos de Panem: filtrá por estado o distrito y consultá la ficha biométrica de cada expediente."
+  />
+  <meta name="color-scheme" content="dark" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/src/css/main.css" />
+  <link rel="stylesheet" href="/src/css/pages/tributos.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand" aria-label="Panem Central Database, inicio">
+        <span class="brand__indicator" aria-hidden="true"></span>
+        PANEM // C.I.S.
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/">Dashboard</a>
+        <a href="/tributos/" aria-current="page">Tributos</a>
+        <a href="/distritos/">Distritos</a>
+        <a href="/capitolio/">El Capitolio</a>
+        <a href="/juegos/">Los Juegos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================= ENCABEZADO DE PÁGINA ======================= -->
+    <section class="page-heading container">
+      <p class="hero__eyebrow">REGISTRO DE TRIBUTOS // TODAS LAS EDICIONES</p>
+      <h1>Expedientes de Tributos</h1>
+      <p class="page-heading__desc">
+        Consultá los expedientes individuales registrados en el sistema. Filtrá por estado
+        o distrito de origen para acotar la búsqueda.
+      </p>
+    </section>
+
+    <!-- ======================= FILTROS ======================= -->
+    <section class="container" aria-labelledby="filters-heading">
+      <h2 id="filters-heading" class="sr-only">Filtros de búsqueda</h2>
+      <div id="tribute-filters" class="tribute-filters" data-component="tribute-filters"></div>
+    </section>
+
+    <!-- ======================= GRILLA DE TRIBUTOS ======================= -->
+    <section class="container" aria-labelledby="tributes-heading">
+      <h2 id="tributes-heading" class="sr-only">Lista de tributos</h2>
+      <p id="tribute-count" class="data-label tribute-count" role="status"></p>
+      <div id="tribute-grid" class="tribute-grid" data-component="tribute-grid"></div>
+    </section>
+  </main>
+
+  <footer class="container" style="padding-block: var(--space-8); text-align:center;">
+    <p class="data-label">PANEM CENTRAL INTELLIGENCE SYSTEM &copy; 75 A.T. — Uso interno exclusivo</p>
+  </footer>
+
+  <!-- ======================= MODAL: FICHA BIOMÉTRICA ======================= -->
+  <dialog id="tribute-modal" class="tribute-modal">
+    <div id="tribute-modal-content"></div>
+  </dialog>
+
+  <script type="module" src="/src/js/pages/tributos.js"></script>
+</body>
+</html>
