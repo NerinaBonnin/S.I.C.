@@ -22,6 +22,91 @@
         "presion": "118/76"
       }
     },
+
+     {
+      "id": "t-d12-lucy",
+      "nombre": "Lucy Gray Baird",
+      "distrito": 12,
+      "edicion": 10,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "carisma y la música",
+      "descripcion": "Lucy Gray Baird fue la tributo femenina del Distrito 12 en la 10ª edicion de los Juegos del Hambre. Destacó por su carisma y habilidades musicales, lo que le permitió ganarse el favor del publico y sobrevivir en la arena.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 84,
+        "temperaturaF": 97.3,
+        "presion": "115/76"
+      }
+    },
+
+    {
+      "id": "t-d4-mags",
+      "nombre": "Mags Flanagan",
+      "distrito": 4,
+      "edicion": 11,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "supervivencia marina y costera",
+      "descripcion": "Mags Flanagan fue la vencedora de los 11.º Juegos del Hambre, reconocida por su bondad, sabiduría y valentía, regresó a la arena en el Vasallaje de los Veinticinco, donde realizó uno de los sacrificios más conmovedores de la saga.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 86,
+        "temperaturaF": 99.1,
+        "presion": "110/76"
+      }
+    },
+
+    {
+      "id": "t-d5-porter",
+      "nombre": "Porter Tripp",
+      "distrito": 5,
+      "edicion": 38,
+      "edad": 15,
+      "estado": "Vencedor",
+      "especialidad": "Ninguna en particular",
+      "descripcion": "Porter Millicent Tripp es una periodista del Capitolio conocida por cubrir la guerra contra los rebeldes. Tras la caída del régimen de Snow, continuó informando sobre los acontecimientos que marcaron el nacimiento de la nueva Panem.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 80,
+        "temperaturaF": 91.8,
+        "presion": "120/76"
+      }
+    },
+
+    {
+      "id": "t-d2-Enobaria",
+      "nombre": "Enobaria",
+      "distrito": 2,
+      "edicion": 62,
+      "edad": 18,
+      "estado": "Vencedor",
+      "especialidad": "combate cuerpo a cuerpo",
+      "descripcion": "Enobaria fue la vencedora de los 62.º Juegos del Hambre, famosa por sus afilados dientes de oro, se ganó una reputación temible tras derrotar a un tributo usando únicamente su mordida. También participó en el Vasallaje de los Veinticinco y sobrevivió a la guerra contra el Capitolio.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 79,
+        "temperaturaF": 93.4,
+        "presion": "114/76"
+      }
+    },
+
+    {
+      "id": "t-d4-coral",
+      "nombre": "Coral",
+      "distrito": 4,
+      "edicion": 10,
+      "edad": 16,
+      "estado": "Caído",
+      "especialidad": "combate cuerpo a cuerpo y uso del tridente",
+      "descripcion": "Coral fue la tributo femenina del Distrito 4, destacó por ser una de las competidoras más fuertes y letales de la arena, acumulando varias bajas antes de llegar a la fase final de la competencia, donde fue derrotada por Lucy Gray Baird.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 83,
+        "temperaturaF": 98.8,
+        "presion": "111/76"
+      }
+    },
     {
       "id": "t-d2-cato",
       "nombre": "Cato",
@@ -54,6 +139,24 @@
         "presion": "124/80"
       }
     },
+
+    {
+      "id": "t-d4-mizzen",
+      "nombre": "Mizzen",
+      "distrito": 4,
+      "edicion": 10,
+      "edad": 13,
+      "estado": "Caído",
+      "especialidad": "Uso de redes y cuchillos",
+      "descripcion": "Mizzen fue el tributo masculino del Distrito 4 en los Décimos Juegos del Hambre. A pesar de su corta edad, destacó por su habilidad con el tridente y por formar parte de la alianza de los tributos más fuertes dentro de la arena.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 89,
+        "temperaturaF": 96.4,
+        "presion": "125/80"
+      }
+    },
+
     {
       "id": "t-d11-rue",
       "nombre": "Rue",
@@ -70,6 +173,398 @@
         "presion": "110/70"
       }
     },
+
+    {
+      "id": "t-d1-gloss",
+      "nombre": "Gloss",
+      "distrito": 1,
+      "edicion": 63,
+      "edad": 15,
+      "estado": "Vencedor",
+      "especialidad": "Manejo de dagas y el lanzamiento de cuchillos",
+      "descripcion": "Gloss fue el vencedor de los 63.º Juegos del Hambre y tributo del Distrito 1. Experto en el combate con cuchillos, regresó a la arena durante el Vasallaje de los Veinticinco junto a su hermana Cashmere, consolidándose como uno de los tributos profesionales más peligrosos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 101,
+        "temperaturaF": 98.2,
+        "presion": "115/70"
+      }
+    },
+
+    {
+      "id": "t-d1-marvel",
+      "nombre": "Marvel",
+      "distrito": 1,
+      "edicion": 74,
+      "edad": 17,
+      "estado": "Caído",
+      "especialidad": "Lanzamiento de lanzas",
+      "descripcion": "Marvel fue el tributo masculino del Distrito 1 en los 74.º Juegos del Hambre. Como tributo profesional, destacó por su habilidad con la lanza y por formar parte de la alianza más poderosa de la arena antes de ser derrotado por Katniss Everdeen.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 99,
+        "temperaturaF": 91.0,
+        "presion": "121/70"
+      }
+    },
+
+    {
+      "id": "t-d1-Cashmere",
+      "nombre": "Cashmere",
+      "distrito": 1,
+      "edicion": 64,
+      "edad": 15,
+      "estado": "Vencedor",
+      "especialidad": "Lanzamiento y manejo de cuchillos",
+      "descripcion": "Cashmere fue la vencedora de los 64.º Juegos del Hambre y tributo del Distrito 1. Reconocida por su belleza y habilidad en combate, regresó a la arena durante el Vasallaje de los Veinticinco junto a su hermano Gloss, representando a los tributos profesionales más experimentados.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 96,
+        "temperaturaF": 95.9,
+        "presion": "119/70"
+      }
+    },
+
+    {
+      "id": "t-d1-Glimmer",
+      "nombre": "Glimmer",
+      "distrito": 1,
+      "edicion": 74,
+      "edad": 17,
+      "estado": "Caído",
+      "especialidad": "Uso del arco y las flechas",
+      "descripcion": "Glimmer fue la tributo femenina del Distrito 1 en los 74.º Juegos del Hambre. Como tributo profesional, destacó por su alianza con los Carreras y por usar un arco, aunque no dominaba el arma. Murió tras el ataque de un enjambre de rastrevíspulas en la arena.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 102,
+        "temperaturaF": 97.6,
+        "presion": "113/70"
+      }
+    },
+
+    {
+      "id": "t-d4-annie",
+      "nombre": "Annie Cresta",
+      "distrito": 4,
+      "edicion": 70,
+      "edad": 18,
+      "estado": "Vencedor",
+      "especialidad": "Natación",
+      "descripcion": "Annie Cresta fue la vencedora de los 70.º Juegos del Hambre por el Distrito 4. Sobrevivió gracias a una inundación en la arena y, tras los Juegos, quedó profundamente afectada por el trauma. Es conocida por su gran fortaleza emocional y por su historia de amor con Finnick Odair.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 81,
+        "temperaturaF": 98.3,
+        "presion": "120/70"
+      }
+    },
+
+    {
+      "id": "t-d2-clove",
+      "nombre": "Clove",
+      "distrito": 2,
+      "edicion": 74,
+      "edad": 15,
+      "estado": "Caído",
+      "especialidad": "Lanzamiento de cuchillos",
+      "descripcion": "Clove fue la tributo femenina del Distrito 2 en los 74.º Juegos del Hambre. Considerada una de las competidoras más peligrosas, era experta en el lanzamiento de cuchillos y formó parte de la alianza de los tributos profesionales antes de ser derrotada por Thresh.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 100,
+        "temperaturaF": 95.0,
+        "presion": "109/70"
+      }
+    },
+
+    {
+      "id": "t-d7-johanna",
+      "nombre": "Johanna Mason",
+      "distrito": 7,
+      "edicion": 71,
+      "edad": 17,
+      "estado": "Vencedor",
+      "especialidad": "Manejo experto del hacha",
+      "descripcion": "Johanna Mason fue la vencedora de los 71.º Juegos del Hambre por el Distrito 7. Conocida por su carácter fuerte, sarcasmo y habilidad con el hacha, fingió ser una tributo débil para sorprender a sus rivales y más tarde se unió a la rebelión contra el Capitolio.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 97,
+        "temperaturaF": 93.9,
+        "presion": "100/70"
+      }
+    },
+
+    {
+      "id": "t-d11-tresh",
+      "nombre": "Thresh",
+      "distrito": 11,
+      "edicion": 74,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "Fuerza física y habilidades agricolas",
+      "descripcion": "Thresh fue el tributo masculino del Distrito 11 en los 74.º Juegos del Hambre. Destacó por su enorme fuerza física, su independencia y su sentido de la justicia. Fue uno de los últimos sobrevivientes de la arena y perdonó la vida de Katniss Everdeen en agradecimiento por haber honrado a Rue.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 103,
+        "temperaturaF": 100.1,
+        "presion": "127/70"
+      }
+    },
+
+    {
+      "id": "t-d12-peeta",
+      "nombre": "Peeta Mellark",
+      "distrito": 12,
+      "edicion": 74,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "Fuerza física y camuflaje artístico",
+      "descripcion": "Peeta Mellark fue el tributo masculino del Distrito 12 en los 74.º Juegos del Hambre y uno de sus vencedores. Conocido por su bondad, carisma y talento para la pintura y la repostería, se convirtió en un símbolo de esperanza y resistencia junto a Katniss Everdeen durante la rebelión contra el Capitolio.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 98,
+        "temperaturaF": 79.9,
+        "presion": "120/70"
+      }
+    },
+
+    {
+      "id": "t-d5-comadreja",
+      "nombre": "La comadreja",
+      "distrito": 5,
+      "edicion": 74,
+      "edad": 14,
+      "estado": "Caído",
+      "especialidad": "Inteligencia extrema, astucia y sigilo",
+      "descripcion": "Foxface, conocida como la Comadreja, fue la tributo femenina del Distrito 5 en los 74.º Juegos del Hambre. Destacó por su inteligencia, astucia y habilidad para sobrevivir evitando los enfrentamientos directos. Murió tras consumir unas bayas venenosas que había tomado del suministro de Peeta Mellark.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 95,
+        "temperaturaF": 85.0,
+        "presion": "119/70"
+      }
+    },
+
+    {
+      "id": "t-d3-beetee",
+      "nombre": "Beetee Latier",
+      "distrito": 3,
+      "edicion": 34,
+      "edad": 16,
+      "estado": "Vencedor",
+      "especialidad": "La electrónica, la tecnología y el cableado",
+      "descripcion": "Beetee Latier fue el vencedor de los 34.º Juegos del Hambre por el Distrito 3. Reconocido por su extraordinaria inteligencia y conocimientos en tecnología, utilizó su ingenio para sobrevivir y más tarde desempeñó un papel clave en la rebelión contra el Capitolio.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 91,
+        "temperaturaF": 100.5,
+        "presion": "123/70"
+      }
+    },
+
+    {
+      "id": "t-d12-maysilee",
+      "nombre": "Maysilee Donner",
+      "distrito": 12,
+      "edicion": 50,
+      "edad": 16,
+      "estado": "Caído",
+      "especialidad": "Uso de cerbatana con dardos venenosos",
+      "descripcion": "Maysilee Donner fue la tributo femenina del Distrito 12 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Conocida por su valentía y determinación, formó una breve alianza con Haymitch Abernathy antes de morir cerca del final de la competencia.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 90,
+        "temperaturaF": 92.7,
+        "presion": "127/70"
+      }
+    },
+
+    {
+      "id": "t-d3-wiress",
+      "nombre": "Wiress",
+      "distrito": 3,
+      "edicion": 49,
+      "edad": 17,
+      "estado": "Vencedor",
+      "especialidad": "Tecnología, la electrónica y la ingeniería",
+      "descripcion": "Wiress fue la vencedora de los 49.º Juegos del Hambre por el Distrito 3. Brillante e intuitiva, descubrió que la arena del Vasallaje de los Veinticinco funcionaba como un reloj, una revelación crucial para la supervivencia de sus aliados durante la competencia.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 86,
+        "temperaturaF": 91.3,
+        "presion": "124/70"
+      }
+    },
+
+    {
+      "id": "t-d2-brutus",
+      "nombre": "Brutus",
+      "distrito": 2,
+      "edicion": "No especificada",
+      "edad": 15,
+      "estado": "Vencedor",
+      "especialidad": "Combate cuerpo a cuerpo, uso de lanzas y manejo de espadas",
+      "descripcion": "Brutus fue el vencedor de los 46.º Juegos del Hambre por el Distrito 2. Reconocido por su fuerza, agresividad y experiencia como tributo profesional, regresó a la arena en el Vasallaje de los Veinticinco, donde fue uno de los competidores más letales.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 88,
+        "temperaturaF": 81.8,
+        "presion": "88/70"
+      }
+    },
+
+    {
+      "id": "t-d11-reaper",
+      "nombre": "Reaper Ash",
+      "distrito": 11,
+      "edicion": 10,
+      "edad": 17,
+      "estado": "Caído",
+      "especialidad": "Uso de herramientas de labranza",
+      "descripcion": "Reaper Ash fue el tributo masculino del Distrito 11 en los Décimos Juegos del Hambre. Conocido por su gran tamaño, fuerza y sentido de justicia, desafió las reglas del Capitolio dentro de la arena y protegió el cuerpo de sus compañeros caídos como muestra de respeto.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 90,
+        "temperaturaF": 76.5,
+        "presion": "92/70"
+      }
+    },
+
+    {
+      "id": "t-d11-chaff",
+      "nombre": "Chaff",
+      "distrito": 11,
+      "edicion": 45,
+      "edad": 17,
+      "estado": "Vencedor",
+      "especialidad": "fuerza física, combate cuerpo a cuerpo y el uso de la lanza",
+      "descripcion": "Chaff fue el vencedor de los 45.º Juegos del Hambre por el Distrito 11. Reconocido por su fuerza y espíritu rebelde, perdió una mano durante los Juegos y volvió a la arena en el Vasallaje de los Veinticinco, donde luchó como aliado de Katniss y Peeta.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 97,
+        "temperaturaF": 77.3,
+        "presion": "117/70"
+      }
+    },
+
+    {
+      "id": "t-d7-treech",
+      "nombre": "Treech",
+      "distrito": 7,
+      "edicion": 10,
+      "edad": 16,
+      "estado": "Caído",
+      "especialidad": "Escalada",
+      "descripcion": "Treech fue el tributo masculino del Distrito 7 en los Décimos Juegos del Hambre. Conocido por su fuerza y resistencia, utilizó su habilidad con el hacha para sobrevivir en la arena y formó parte de una alianza con otros tributos antes de ser derrotado.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 100,
+        "temperaturaF": 90.7,
+        "presion": "126/70"
+      }
+    },
+
+    {
+      "id": "t-d11-sedder",
+      "nombre": "Seeder",
+      "distrito": 11,
+      "edicion": "No especificada",
+      "edad": 15,
+      "estado": "Vencedor",
+      "especialidad": "No especificada",
+      "descripcion": "Seeder fue la vencedora de los 52.º Juegos del Hambre por el Distrito 11. Era una mujer amable y protectora, conocida por su vínculo con Katniss Everdeen y por su apoyo a los tributos del Distrito 11 durante el Vasallaje de los Veinticinco.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 98,
+        "temperaturaF": 76.9,
+        "presion": "130/70"
+      }
+    },
+
+    {
+      "id": "t-d6-titus",
+      "nombre": "Titus",
+      "distrito": 6,
+      "edicion": 73,
+      "edad": "No especificada",
+      "estado": "Caído",
+      "especialidad": "No especificada",
+      "descripcion": "Titus fue un tributo del Distrito 6 en unos Juegos del Hambre anteriores. Es recordado por su comportamiento salvaje dentro de la arena, donde se rumoreaba que llegó a consumir a otros tributos para sobrevivir, convirtiéndose en una de las figuras más perturbadoras de la historia de los Juegos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 106,
+        "temperaturaF": 76.5,
+        "presion": "125/70"
+      }
+    },
+
+    {
+      "id": "t-d12-wyatt",
+      "nombre": "Wyatt Callow",
+      "distrito": 12,
+      "edicion": 50,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "analista y calculador de probabilidades",
+      "descripcion": "Wyatt Callow fue el tributo masculino del Distrito 12 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Elegido junto a Haymitch Abernathy, formó parte de la dura realidad que enfrentaron los tributos del Distrito 12 durante esa edición especial de los Juegos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 100,
+        "temperaturaF": 78.2,
+        "presion": "129/70"
+      }
+    },
+
+    {
+      "id": "t-d12-louella",
+      "nombre": "Louella McCoy",
+      "distrito": 12,
+      "edicion": 50,
+      "edad": 13,
+      "estado": "Caído",
+      "especialidad": "No especificada",
+      "descripcion": "Louella McCoy fue la tributo femenina del Distrito 12 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Su participación quedó marcada por una tragedia antes de la arena, mostrando la crueldad del Capitolio incluso antes del inicio de los Juegos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 91,
+        "temperaturaF": 78.4,
+        "presion": "91/70"
+      }
+    },
+
+    {
+      "id": "t-d1-Silka",
+      "nombre": "Silka",
+      "distrito": 1,
+      "edicion": 50,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "Combate con hachas",
+      "descripcion": "Silka fue la tributo femenina del Distrito 1 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Como representante de un distrito profesional, fue entrenada para competir y sobrevivir en la arena, formando parte de la generación de tributos que enfrentó el brutal aumento de víctimas impuesto por el Capitolio.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 100,
+        "temperaturaF": 90.4,
+        "presion": "99/70"
+      }
+    },
+
+    {
+      "id": "t-d4-Ampert",
+      "nombre": "Ampert",
+      "distrito": 4,
+      "edicion": 50,
+      "edad": 12,
+      "estado": "Caído",
+      "especialidad": "Gran intelecto",
+      "descripcion": "Ampert fue la tributo femenina del Distrito 4 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Como representante de un distrito conocido por sus habilidades acuáticas, participó en una de las ediciones más recordadas de los Juegos, donde los tributos enfrentaron una arena especialmente mortal.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 104,
+        "temperaturaF": 84.9,
+        "presion": "106/70"
+      }
+    },
+    
     {
       "id": "t-d4-finnick",
       "nombre": "Finnick Odair",
