@@ -43,7 +43,9 @@ export function openTributeModal(tributo, triggerEl) {
   dialogEl.setAttribute('aria-label', `Ficha biométrica: ${tributo.nombre}`);
 
   contentEl.innerHTML = `
-    <button type="button" class="tribute-modal__close" data-close-modal aria-label="Cerrar ficha">✕</button>
+    <div class="tribute-modal__toolbar">
+      <button type="button" class="tribute-modal__close" data-close-modal aria-label="Cerrar ficha">✕</button>
+    </div>
     <div class="victor-card__scan" aria-hidden="true">
       <span class="victor-card__scan-label">FEED EN VIVO // ARCHIVO CENTRAL</span>
     </div>
