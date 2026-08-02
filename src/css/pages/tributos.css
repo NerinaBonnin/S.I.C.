@@ -36,7 +36,7 @@
   border: var(--border-thin);
   border-radius: var(--radius-lg);
   transition: border-color var(--transition-fast), color var(--transition-fast),
-  background var(--transition-fast), box-shadow var(--transition-fast);
+    background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .filter-chip:hover {
@@ -82,6 +82,8 @@
 }
 
 .tribute-card__scan {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 4 / 3;
   margin-bottom: var(--space-2);
@@ -90,17 +92,32 @@
   border: var(--border-thin);
 }
 
+.tribute-card__scan img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .tribute-card__name {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   color: var(--color-text-bright);
 }
 
+/* El panel de foto (.victor-card__scan) se reutiliza del Home, pero acá el
+   contenedor es mucho más ancho (el modal, no la columna angosta del Home).
+   Se sobreescribe su alto para que la proporción quede bien en este contexto,
+   sin tocar victor-card.css (que sigue sirviendo al Home tal cual estaba). */
 .tribute-modal .victor-card__scan {
   min-height: 0;
   aspect-ratio: 16 / 9;
 }
 
+/* Separación entre la foto y el nombre/estado: solo dentro del modal, ya que
+   en el Home la ficha va en dos columnas (foto y texto lado a lado) y no
+   necesita este espacio vertical. */
 .tribute-modal .victor-card__body {
   margin-top: var(--space-4);
 }
@@ -109,7 +126,7 @@
 .tribute-modal {
   width: min(560px, 92vw);
   max-height: 85vh;
-  margin: auto; 
+  margin: auto; /* el reset global pone margin:0 en todo; esto restaura el auto-centrado nativo del <dialog> */
   padding: 0;
   overflow-y: auto;
   color: var(--color-text);
@@ -151,10 +168,11 @@
   border: var(--border-thin);
   border-radius: 50%;
   transition: color var(--transition-fast), border-color var(--transition-fast),
-  background var(--transition-fast), box-shadow var(--transition-fast);
+    background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.tribute-modal__close:hover, .tribute-modal__close:focus-visible {
+.tribute-modal__close:hover,
+.tribute-modal__close:focus-visible {
   color: var(--color-bg-void);
   background: var(--color-accent);
   border-color: var(--color-accent);
