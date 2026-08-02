@@ -1,4 +1,4 @@
-import { escapeHTML } from '../utils/dom.js';
+import { escapeHTML, attachImageFallback } from '../utils/dom.js';
 
 /**
  * Renderiza la grilla de tarjetas de tributos. Cada tarjeta es un <button>
@@ -20,13 +20,17 @@ export function renderTributeGrid(selector, tributos = [], { onSelect } = {}) {
   container.innerHTML = tributos
     .map((tributo) => {
       const badgeClass = tributo.estado === 'Vencedor' ? 'badge--success' : 'badge--danger';
+      const imgTag = tributo.imagen
+        ? `<img src="${escapeHTML(tributo.imagen)}" alt="" data-img-fallback loading="lazy" />`
+        : '';
+
       return `
         <button
           type="button"
           class="tribute-card glass-panel glass-panel--interactive hud-corners"
           data-tribute-id="${escapeHTML(tributo.id)}"
         >
-          <span class="tribute-card__scan" aria-hidden="true"></span>
+          <span class="tribute-card__scan" aria-hidden="true">${imgTag}</span>
           <span class="tribute-card__name">${escapeHTML(tributo.nombre)}</span>
           <span class="data-label">Distrito ${escapeHTML(tributo.distrito)} // Edición ${escapeHTML(tributo.edicion)}</span>
           <span class="badge ${badgeClass}">${escapeHTML(tributo.estado)}</span>
@@ -34,6 +38,8 @@ export function renderTributeGrid(selector, tributos = [], { onSelect } = {}) {
       `;
     })
     .join('');
+
+  attachImageFallback(container);
 
   container.querySelectorAll('[data-tribute-id]').forEach((card) => {
     card.addEventListener('click', () => {

@@ -1,4 +1,6 @@
 import { buildBiometricFichaMarkup } from './biometricFicha.js';
+import { buildScanPanelMarkup } from './scanPanel.js';
+import { attachImageFallback } from '../utils/dom.js';
 
 /**
  * Elige un tributo al azar entre los que tienen estado "Vencedor"
@@ -20,11 +22,11 @@ export function renderFeaturedVictor(selector, tributos = []) {
   const victor = vencedores[Math.floor(Math.random() * vencedores.length)];
 
   container.innerHTML = `
-    <div class="victor-card__scan" aria-hidden="true">
-      <span class="victor-card__scan-label">FEED EN VIVO // CÁMARA 04</span>
-    </div>
+    ${buildScanPanelMarkup(victor, 'FEED EN VIVO // CÁMARA 04')}
     <div class="victor-card__body">
       ${buildBiometricFichaMarkup(victor)}
     </div>
   `;
+
+  attachImageFallback(container);
 }

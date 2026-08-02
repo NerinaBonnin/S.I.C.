@@ -15,7 +15,7 @@
       "estado": "Vencedor",
       "especialidad": "Tiro con arco / supervivencia en bosque",
       "descripcion": "Voluntaria en lugar de su hermana menor. Reconocida por su puntería con el arco y su capacidad de improvisar recursos en entornos hostiles.",
-      "imagen": "/assets/img/tributos/katniss.jpg",
+      "imagen": "/assets/img/tributos/Katniss.webp",
       "signosVitales": {
         "ritmoCardiaco": 89,
         "temperaturaF": 98.6,
@@ -533,7 +533,7 @@
 
     {
       "id": "t-d1-Silka",
-      "nombre": "Silka",
+      "nombre": "Silka Sharp",
       "distrito": 1,
       "edicion": 50,
       "edad": 18,
@@ -550,7 +550,7 @@
 
     {
       "id": "t-d4-Ampert",
-      "nombre": "Ampert",
+      "nombre": "Ampert Latier",
       "distrito": 4,
       "edicion": 50,
       "edad": 12,
@@ -562,6 +562,74 @@
         "ritmoCardiaco": 104,
         "temperaturaF": 84.9,
         "presion": "106/70"
+      }
+    },
+
+    {
+      "id": "t-d2-Marcus",
+      "nombre": "Marcus",
+      "distrito": 2,
+      "edicion": 10,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "No especificada",
+      "descripcion": "Marcus fue el tributo masculino del Distrito 2 en los Décimos Juegos del Hambre. Conocido por su fortaleza física, intentó escapar antes del inicio de la competencia, pero fue capturado y utilizado por el Capitolio como un cruel ejemplo para intimidar al resto de los tributos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 105,
+        "temperaturaF": 94.1,
+        "presion": "92/70"
+      }
+    },
+
+    {
+      "id": "t-d12-Jessup",
+      "nombre": "Jessup Diggs",
+      "distrito": 12,
+      "edicion": 10,
+      "edad": 17,
+      "estado": "Caído",
+      "especialidad": "No especificada",
+      "descripcion": "Jessup Diggs fue el tributo masculino del Distrito 12 en los Décimos Juegos del Hambre. Leal y protector con Lucy Gray Baird, luchó con valentía a pesar de sufrir rabia tras ser atacado por un murciélago antes del inicio de la competencia.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 91,
+        "temperaturaF": 91.5,
+        "presion": "118/70"
+      }
+    },
+
+    {
+      "id": "t-d1-Panache",
+      "nombre": "Panache Barker",
+      "distrito": 1,
+      "edicion": 50,
+      "edad": 18,
+      "estado": "Caído",
+      "especialidad": "Uso de la espada",
+      "descripcion": "Panache fue el tributo masculino del Distrito 1 en el Segundo Vasallaje de los Veinticinco (50.º Juegos del Hambre). Como tributo profesional, destacó por su confianza y habilidad en combate, siendo uno de los competidores más peligrosos de la arena durante esa edición de los Juegos.",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 100,
+        "temperaturaF": 96.2,
+        "presion": "111/70"
+      }
+    },
+
+    {
+      "id": "t-d12-Lou Lou",
+      "nombre": "Lou Lou",
+      "distrito": 12,
+      "edicion": 50,
+      "edad": 12,
+      "estado": "Caído",
+      "especialidad": "No especificada",
+      "descripcion": "Lou Lou fue una niña del Distrito 12 utilizada por el Capitolio para reemplazar a Louella McCoy tras su muerte antes de los 50.º Juegos del Hambre",
+      "imagen": "",
+      "signosVitales": {
+        "ritmoCardiaco": 90,
+        "temperaturaF": 83.2,
+        "presion": "110/70"
       }
     },
     
