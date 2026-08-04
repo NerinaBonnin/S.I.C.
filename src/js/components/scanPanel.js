@@ -8,10 +8,12 @@ import { escapeHTML } from '../utils/dom.js';
  *
  * @param {object} tributo
  * @param {string} [label] - Texto superpuesto (ej: "FEED EN VIVO // CÁMARA 04").
+ * @param {{ showImage?: boolean }} [options] - showImage:false fuerza el placeholder
+ *   (degradado sin foto), sin importar si el tributo tiene `imagen` cargada.
  * @returns {string} HTML string
  */
-export function buildScanPanelMarkup(tributo, label = 'FEED EN VIVO') {
-  const imgTag = tributo.imagen
+export function buildScanPanelMarkup(tributo, label = 'FEED EN VIVO', { showImage = true } = {}) {
+  const imgTag = showImage && tributo.imagen
     ? `<img src="${escapeHTML(tributo.imagen)}" alt="" data-img-fallback loading="lazy" />`
     : '';
 

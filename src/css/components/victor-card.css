@@ -12,6 +12,7 @@
 
 .victor-card__scan {
   position: relative;
+  z-index: 0; /* crea un contexto de apilamiento propio: sin esto, el z-index:-1 de la img se compara contra el <dialog> entero (el modal vive en una capa especial del navegador) y queda tapada */
   min-height: 200px;
   display: flex;
   align-items: flex-end;
@@ -29,6 +30,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%; /* prioriza la parte superior (cara), en vez de recortar por el centro exacto */
 }
 
 .victor-card__scan::before {
