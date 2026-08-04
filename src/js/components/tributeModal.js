@@ -1,6 +1,4 @@
 import { buildBiometricFichaMarkup } from './biometricFicha.js';
-import { buildScanPanelMarkup } from './scanPanel.js';
-import { attachImageFallback } from '../utils/dom.js';
 
 let dialogEl = null;
 let contentEl = null;
@@ -48,13 +46,11 @@ export function openTributeModal(tributo, triggerEl) {
     <div class="tribute-modal__toolbar">
       <button type="button" class="tribute-modal__close" data-close-modal aria-label="Cerrar ficha">✕</button>
     </div>
-    ${buildScanPanelMarkup(tributo, 'FEED EN VIVO // ARCHIVO CENTRAL')}
     <div class="victor-card__body">
       ${buildBiometricFichaMarkup(tributo)}
     </div>
   `;
 
-  attachImageFallback(contentEl);
   contentEl.querySelector('[data-close-modal]')?.addEventListener('click', () => dialogEl.close());
 
   dialogEl.showModal();

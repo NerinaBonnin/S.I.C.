@@ -58,6 +58,15 @@
   background: var(--glass-fill);
   border: var(--border-thin);
   border-radius: var(--radius-md);
+  accent-color: var(--color-accent);
+}
+
+/* El <select> cerrado hereda los colores de arriba, pero la lista desplegable
+   es un elemento nativo del navegador que ignora ese estilo salvo que se
+   coloreen las <option> explícitamente (si no, sale blanca por defecto). */
+.filter-select option {
+  background-color: var(--color-bg-panel);
+  color: var(--color-text-bright);
 }
 
 .tribute-count {
@@ -85,7 +94,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   margin-bottom: var(--space-2);
   border-radius: var(--radius-md);
   background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-void-deep));
@@ -98,28 +107,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%; /* prioriza la parte superior (cara) al recortar */
 }
 
 .tribute-card__name {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   color: var(--color-text-bright);
-}
-
-/* El panel de foto (.victor-card__scan) se reutiliza del Home, pero acá el
-   contenedor es mucho más ancho (el modal, no la columna angosta del Home).
-   Se sobreescribe su alto para que la proporción quede bien en este contexto,
-   sin tocar victor-card.css (que sigue sirviendo al Home tal cual estaba). */
-.tribute-modal .victor-card__scan {
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-}
-
-/* Separación entre la foto y el nombre/estado: solo dentro del modal, ya que
-   en el Home la ficha va en dos columnas (foto y texto lado a lado) y no
-   necesita este espacio vertical. */
-.tribute-modal .victor-card__body {
-  margin-top: var(--space-4);
 }
 
 /* ---- Modal: ficha biométrica -------------------------------------------- */
