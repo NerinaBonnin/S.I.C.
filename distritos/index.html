@@ -18,6 +18,7 @@
   />
 
   <link rel="stylesheet" href="/src/css/main.css" />
+  <link rel="stylesheet" href="/src/css/pages/distritos.css" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -45,19 +46,115 @@
       <h1>Distritos</h1>
       <p class="page-heading__desc">
         Explorá el mapa de Panem: especialidad productiva, historia breve y vencedores
-        históricos de cada distrito.
+        históricos de cada distrito. Los nodos brillantes ya tienen expediente cargado.
       </p>
     </section>
 
     <section class="container">
-      <div class="glass-panel hud-corners under-construction">
-        <span class="under-construction__icon" aria-hidden="true">◈</span>
-        <p class="data-label">Módulo en construcción</p>
-        <p>
-          Acá va a vivir el mapa interactivo de Panem en SVG: al pasar el cursor o hacer clic
-          sobre un distrito se va a abrir un panel con su especialidad, su historia y la lista
-          de sus vencedores registrados.
-        </p>
+      <div class="district-map-wrapper">
+        <svg
+          id="district-map"
+          class="district-map"
+          viewBox="0 0 600 600"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Mapa de los 12 distritos de Panem alrededor del Capitolio"
+        >
+          <circle class="district-map__radar-ring" cx="300" cy="300" r="250" aria-hidden="true" />
+
+          <g class="district-map__links" aria-hidden="true">
+            <line x1="300" y1="300" x2="300.0" y2="90.0" />
+            <line x1="300" y1="300" x2="405.0" y2="118.1" />
+            <line x1="300" y1="300" x2="481.9" y2="195.0" />
+            <line x1="300" y1="300" x2="510.0" y2="300.0" />
+            <line x1="300" y1="300" x2="481.9" y2="405.0" />
+            <line x1="300" y1="300" x2="405.0" y2="481.9" />
+            <line x1="300" y1="300" x2="300.0" y2="510.0" />
+            <line x1="300" y1="300" x2="195.0" y2="481.9" />
+            <line x1="300" y1="300" x2="118.1" y2="405.0" />
+            <line x1="300" y1="300" x2="90.0" y2="300.0" />
+            <line x1="300" y1="300" x2="118.1" y2="195.0" />
+            <line x1="300" y1="300" x2="195.0" y2="118.1" />
+          </g>
+
+          <g class="district-node" data-district="1" tabindex="0" role="button" aria-label="Distrito 1: expediente no disponible.">
+            <circle class="district-node__circle" cx="300.0" cy="90.0" r="40" />
+            <text class="district-node__label" x="300.0" y="90.0">1</text>
+          </g>
+
+          <g class="district-node district-node--filed" data-district="2" tabindex="0" role="button" aria-label="Distrito 2: Cantería, armamento y entrenamiento militar. Ver expediente.">
+            <circle class="district-node__circle" cx="405.0" cy="118.1" r="40" />
+            <text class="district-node__label" x="405.0" y="118.1">2</text>
+          </g>
+
+          <g class="district-node" data-district="3" tabindex="0" role="button" aria-label="Distrito 3: expediente no disponible.">
+            <circle class="district-node__circle" cx="481.9" cy="195.0" r="40" />
+            <text class="district-node__label" x="481.9" y="195.0">3</text>
+          </g>
+
+          <g class="district-node" data-district="4" tabindex="0" role="button" aria-label="Distrito 4: expediente no disponible.">
+            <circle class="district-node__circle" cx="510.0" cy="300.0" r="40" />
+            <text class="district-node__label" x="510.0" y="300.0">4</text>
+          </g>
+
+          <g class="district-node" data-district="5" tabindex="0" role="button" aria-label="Distrito 5: expediente no disponible.">
+            <circle class="district-node__circle" cx="481.9" cy="405.0" r="40" />
+            <text class="district-node__label" x="481.9" y="405.0">5</text>
+          </g>
+
+          <g class="district-node" data-district="6" tabindex="0" role="button" aria-label="Distrito 6: expediente no disponible.">
+            <circle class="district-node__circle" cx="405.0" cy="481.9" r="40" />
+            <text class="district-node__label" x="405.0" y="481.9">6</text>
+          </g>
+
+          <g class="district-node" data-district="7" tabindex="0" role="button" aria-label="Distrito 7: expediente no disponible.">
+            <circle class="district-node__circle" cx="300.0" cy="510.0" r="40" />
+            <text class="district-node__label" x="300.0" y="510.0">7</text>
+          </g>
+
+          <g class="district-node" data-district="8" tabindex="0" role="button" aria-label="Distrito 8: expediente no disponible.">
+            <circle class="district-node__circle" cx="195.0" cy="481.9" r="40" />
+            <text class="district-node__label" x="195.0" y="481.9">8</text>
+          </g>
+
+          <g class="district-node" data-district="9" tabindex="0" role="button" aria-label="Distrito 9: expediente no disponible.">
+            <circle class="district-node__circle" cx="118.1" cy="405.0" r="40" />
+            <text class="district-node__label" x="118.1" y="405.0">9</text>
+          </g>
+
+          <g class="district-node" data-district="10" tabindex="0" role="button" aria-label="Distrito 10: expediente no disponible.">
+            <circle class="district-node__circle" cx="90.0" cy="300.0" r="40" />
+            <text class="district-node__label" x="90.0" y="300.0">10</text>
+          </g>
+
+          <g class="district-node district-node--filed" data-district="11" tabindex="0" role="button" aria-label="Distrito 11: Agricultura. Ver expediente.">
+            <circle class="district-node__circle" cx="118.1" cy="195.0" r="40" />
+            <text class="district-node__label" x="118.1" y="195.0">11</text>
+          </g>
+
+          <g class="district-node district-node--filed" data-district="12" tabindex="0" role="button" aria-label="Distrito 12: Minería de carbón. Ver expediente.">
+            <circle class="district-node__circle" cx="195.0" cy="118.1" r="40" />
+            <text class="district-node__label" x="195.0" y="118.1">12</text>
+          </g>
+
+          <a href="/capitolio/" class="capitol-node" aria-label="Ir a El Capitolio">
+            <title>El Capitolio</title>
+            <circle class="capitol-node__ring" cx="300" cy="300" r="72" />
+            <circle class="capitol-node__circle" cx="300" cy="300" r="52" />
+            <text class="capitol-node__icon" x="300" y="300">◈</text>
+          </a>
+        </svg>
+
+        <div class="district-map__legend">
+          <span class="district-map__legend-item">
+            <span class="district-map__legend-dot district-map__legend-dot--filed" aria-hidden="true"></span>
+            Expediente disponible
+          </span>
+          <span class="district-map__legend-item">
+            <span class="district-map__legend-dot" aria-hidden="true"></span>
+            Sin datos registrados
+          </span>
+        </div>
       </div>
     </section>
   </main>
@@ -65,5 +162,12 @@
   <footer class="container" style="padding-block: var(--space-8); text-align:center;">
     <p class="data-label">PANEM CENTRAL INTELLIGENCE SYSTEM &copy; 75 A.T. — Uso interno exclusivo</p>
   </footer>
+
+  <!-- ======================= MODAL: EXPEDIENTE DE DISTRITO ======================= -->
+  <dialog id="district-modal" class="district-modal">
+    <div id="district-modal-content"></div>
+  </dialog>
+
+  <script type="module" src="/src/js/pages/distritos.js"></script>
 </body>
 </html>

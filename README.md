@@ -42,6 +42,6 @@ página a propósito, para que la navegación no dependa de que el JS cargue.
 - [x] Boletín de alertas
 - [x] Vista `/tributos` con filtros (Estado + Distrito) y ficha modal
 - [x] Nav estático en HTML + scaffold navegable de las 5 páginas
-- [ ] Mapa SVG interactivo de `/distritos` (hoy es un placeholder)
+- [x] Mapa SVG interactivo de `/distritos` (12 distritos + expediente modal)
 - [ ] Contenido real de `/capitolio` (hoy es un placeholder)
 - [ ] Contenido real de `/juegos` (hoy es un placeholder)
