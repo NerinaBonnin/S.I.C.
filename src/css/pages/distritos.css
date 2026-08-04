@@ -1,0 +1,265 @@
+/* ==========================================================================
+  PÁGINA: Distritos
+   ========================================================================== */
+
+/* ---- Mapa SVG ---------------------------------------------------------- */
+.district-map-wrapper {
+  max-width: 560px;
+  margin: 0 auto var(--space-10);
+  padding-inline: var(--space-5);
+}
+
+.district-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.district-map__radar-ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  stroke-dasharray: 3 9;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: district-radar-spin 50s linear infinite;
+}
+
+@keyframes district-radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.district-map__links line {
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+/* ---- Nodo de distrito --------------------------------------------------- */
+.district-node {
+  cursor: pointer;
+}
+
+.district-node__circle {
+  fill: rgba(10, 65, 116, 0.3);
+  stroke: rgba(123, 189, 232, 0.35);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: stroke var(--transition-fast), fill var(--transition-fast),
+    filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.district-node__label {
+  font-family: var(--font-display);
+  font-size: 28px;
+  fill: var(--color-text);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Distritos con expediente cargado: más brillantes, para distinguirlos a
+   simple vista de los que todavía no tienen datos. */
+.district-node--filed .district-node__circle {
+  fill: rgba(123, 189, 232, 0.18);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(123, 189, 232, 0.45));
+}
+
+.district-node--filed .district-node__label {
+  fill: var(--color-text-bright);
+}
+
+.district-node:hover .district-node__circle,
+.district-node:focus-visible .district-node__circle {
+  stroke: var(--color-accent);
+  filter: drop-shadow(0 0 10px rgba(123, 189, 232, 0.6));
+  transform: scale(1.1);
+}
+
+/* ---- Nodo central: El Capitolio ------------------------------------------ */
+.capitol-node {
+  cursor: pointer;
+}
+
+.capitol-node__ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
+}
+
+.capitol-node__circle {
+  fill: rgba(123, 189, 232, 0.14);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.capitol-node__icon {
+  font-size: 32px;
+  fill: var(--color-accent);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  user-select: none;
+}
+
+.capitol-node:hover .capitol-node__circle,
+.capitol-node:focus-visible .capitol-node__circle {
+  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.65));
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .district-map__radar-ring {
+    animation: none;
+  }
+}
+
+/* ---- Leyenda ------------------------------------------------------------- */
+.district-map__legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+}
+
+.district-map__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.district-map__legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--glass-border-strong);
+}
+
+.district-map__legend-dot--filed {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-sm);
+}
+
+/* ==========================================================================
+   MODAL DE EXPEDIENTE DE DISTRITO
+   Nota: es un <dialog> independiente del de /tributos, con sus propias clases
+   (.district-modal*). Repite intencionalmente la misma receta ya probada
+   (margin:auto para el centrado nativo, toolbar en flujo normal para el botón
+   de cerrar) en vez de compartir CSS con tributos.css, para no arriesgar nada
+   de lo que ya está andando bien ahí.
+   ========================================================================== */
+.district-modal {
+  width: min(560px, 92vw);
+  max-height: 85vh;
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  color: var(--color-text);
+  background: var(--color-bg-void);
+  border: var(--border-thin-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glow-lg);
+}
+
+.district-modal::backdrop {
+  background: rgba(0, 13, 26, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.district-modal[open] {
+  animation: district-modal-in var(--transition-base) ease-out;
+}
+
+.district-modal #district-modal-content {
+  padding: var(--space-6);
+}
+
+.district-modal__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: var(--space-3);
+}
+
+.district-modal__close {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  color: var(--color-text-bright);
+  background: rgba(0, 21, 43, 0.6);
+  border: var(--border-thin);
+  border-radius: 50%;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.district-modal__close:hover,
+.district-modal__close:focus-visible {
+  color: var(--color-bg-void);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-sm);
+}
+
+.district-modal__header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.district-modal__desc {
+  margin-block: var(--space-3);
+  max-width: 60ch;
+}
+
+.district-modal__winners ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.district-modal__winners li {
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0, 21, 43, 0.4);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  color: var(--color-text-bright);
+}
+
+@keyframes district-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .district-modal[open] {
+    animation: none;
+  }
+}
