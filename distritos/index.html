@@ -45,8 +45,9 @@
       <p class="hero__eyebrow">MAPA TERRITORIAL // 12 DISTRITOS EN PRODUCCIÓN</p>
       <h1>Distritos</h1>
       <p class="page-heading__desc">
-        Explorá el mapa de Panem: especialidad productiva, historia breve y vencedores
-        históricos de cada distrito. Los nodos brillantes ya tienen expediente cargado.
+        Explorá el mapa de Panem: pasá el cursor sobre un distrito para resaltarlo, o hacé
+        clic para ver su especialidad, historia y vencedores históricos. Los distritos con
+        ícono ya tienen expediente cargado.
       </p>
     </section>
 
@@ -55,93 +56,94 @@
         <svg
           id="district-map"
           class="district-map"
-          viewBox="0 0 600 600"
+          viewBox="30 30 610 510"
           xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Mapa de los 12 distritos de Panem alrededor del Capitolio"
         >
-          <circle class="district-map__radar-ring" cx="300" cy="300" r="250" aria-hidden="true" />
-
-          <g class="district-map__links" aria-hidden="true">
-            <line x1="300" y1="300" x2="300.0" y2="90.0" />
-            <line x1="300" y1="300" x2="405.0" y2="118.1" />
-            <line x1="300" y1="300" x2="481.9" y2="195.0" />
-            <line x1="300" y1="300" x2="510.0" y2="300.0" />
-            <line x1="300" y1="300" x2="481.9" y2="405.0" />
-            <line x1="300" y1="300" x2="405.0" y2="481.9" />
-            <line x1="300" y1="300" x2="300.0" y2="510.0" />
-            <line x1="300" y1="300" x2="195.0" y2="481.9" />
-            <line x1="300" y1="300" x2="118.1" y2="405.0" />
-            <line x1="300" y1="300" x2="90.0" y2="300.0" />
-            <line x1="300" y1="300" x2="118.1" y2="195.0" />
-            <line x1="300" y1="300" x2="195.0" y2="118.1" />
-          </g>
+          <!-- Íconos originales (propios, no calcados de ninguna imagen): líneas
+               simples que representan cada especialidad. Reutilizados también
+               en el modal vía <use href="#icon-...">. -->
+          <defs>
+            <symbol id="icon-mineria" viewBox="0 0 24 24">
+              <path d="M3 19 L9 8 L12 13 L15 6 L21 19 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+            </symbol>
+            <symbol id="icon-agricultura" viewBox="0 0 24 24">
+              <path d="M12 20 V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M12 10 C 8 10 6 7 6 4 C 10 4 12 7 12 10 Z" fill="currentColor" />
+              <path d="M12 10 C 16 10 18 7 18 4 C 14 4 12 7 12 10 Z" fill="currentColor" />
+            </symbol>
+            <symbol id="icon-militar" viewBox="0 0 24 24">
+              <path d="M12 3 L19 6 V12 C19 17 16 20 12 21 C8 20 5 17 5 12 V6 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            </symbol>
+          </defs>
 
           <g class="district-node" data-district="1" tabindex="0" role="button" aria-label="Distrito 1: expediente no disponible.">
-            <circle class="district-node__circle" cx="300.0" cy="90.0" r="40" />
-            <text class="district-node__label" x="300.0" y="90.0">1</text>
+            <polygon class="district-node__cell" points="278.2,67.9 293.9,248.5 339.9,245.3 373.4,112.8" />
+            <text class="district-node__label" x="320.6" y="158.8">1</text>
           </g>
 
           <g class="district-node district-node--filed" data-district="2" tabindex="0" role="button" aria-label="Distrito 2: Cantería, armamento y entrenamiento militar. Ver expediente.">
-            <circle class="district-node__circle" cx="405.0" cy="118.1" r="40" />
-            <text class="district-node__label" x="405.0" y="118.1">2</text>
+            <polygon class="district-node__cell" points="373.4,112.8 459.0,153.1 384.4,280.2 339.9,245.3" />
+            <circle class="district-node__badge" cx="392.2" cy="192.4" r="17" />
+            <use class="district-node__icon" href="#icon-militar" x="380.2" y="180.4" width="24" height="24" />
           </g>
 
           <g class="district-node" data-district="3" tabindex="0" role="button" aria-label="Distrito 3: expediente no disponible.">
-            <circle class="district-node__circle" cx="481.9" cy="195.0" r="40" />
-            <text class="district-node__label" x="481.9" y="195.0">3</text>
+            <polygon class="district-node__cell" points="392.7,298.3 520.4,224.8 488.0,166.8 459.0,153.1 384.4,280.2" />
+            <text class="district-node__label" x="453.3" y="224.8">3</text>
           </g>
 
           <g class="district-node" data-district="4" tabindex="0" role="button" aria-label="Distrito 4: expediente no disponible.">
-            <circle class="district-node__circle" cx="510.0" cy="300.0" r="40" />
-            <text class="district-node__label" x="510.0" y="300.0">4</text>
+            <polygon class="district-node__cell" points="392.7,298.3 520.4,224.8 583.8,338.4 392.9,300.3" />
+            <text class="district-node__label" x="498.1" y="287.6">4</text>
           </g>
 
           <g class="district-node" data-district="5" tabindex="0" role="button" aria-label="Distrito 5: expediente no disponible.">
-            <circle class="district-node__circle" cx="481.9" cy="405.0" r="40" />
-            <text class="district-node__label" x="481.9" y="405.0">5</text>
+            <polygon class="district-node__cell" points="599.8,367.1 589.6,391.6 571.5,419.1 546.8,442.7 517.6,462.0 502.6,470.1 388.8,312.9 392.9,300.3 583.8,338.4" />
+            <text class="district-node__label" x="502.3" y="375.5">5</text>
           </g>
 
           <g class="district-node" data-district="6" tabindex="0" role="button" aria-label="Distrito 6: expediente no disponible.">
-            <circle class="district-node__circle" cx="405.0" cy="481.9" r="40" />
-            <text class="district-node__label" x="405.0" y="481.9">6</text>
+            <polygon class="district-node__cell" points="333.6,365.0 416.0,491.1 468.5,487.9 487.0,478.5 502.6,470.1 388.8,312.9" />
+            <text class="district-node__label" x="414.1" y="412.4">6</text>
           </g>
 
           <g class="district-node" data-district="7" tabindex="0" role="button" aria-label="Distrito 7: expediente no disponible.">
-            <circle class="district-node__circle" cx="300.0" cy="510.0" r="40" />
-            <text class="district-node__label" x="300.0" y="510.0">7</text>
+            <polygon class="district-node__cell" points="259.9,500.5 416.0,491.1 333.6,365.0 323.0,365.3 250.6,498.3" />
+            <text class="district-node__label" x="331.1" y="449.8">7</text>
           </g>
 
           <g class="district-node" data-district="8" tabindex="0" role="button" aria-label="Distrito 8: expediente no disponible.">
-            <circle class="district-node__circle" cx="195.0" cy="481.9" r="40" />
-            <text class="district-node__label" x="195.0" y="481.9">8</text>
+            <polygon class="district-node__cell" points="249.2,326.7 323.0,365.3 250.6,498.3 181.0,481.4 239.4,335.1" />
+            <text class="district-node__label" x="250.2" y="414.3">8</text>
           </g>
 
           <g class="district-node" data-district="9" tabindex="0" role="button" aria-label="Distrito 9: expediente no disponible.">
-            <circle class="district-node__circle" cx="118.1" cy="405.0" r="40" />
-            <text class="district-node__label" x="118.1" y="405.0">9</text>
+            <polygon class="district-node__cell" points="64.5,320.7 63.0,345.3 78.4,456.6 181.0,481.4 239.4,335.1" />
+            <text class="district-node__label" x="142.4" y="392.6">9</text>
           </g>
 
           <g class="district-node" data-district="10" tabindex="0" role="button" aria-label="Distrito 10: expediente no disponible.">
-            <circle class="district-node__circle" cx="90.0" cy="300.0" r="40" />
-            <text class="district-node__label" x="90.0" y="300.0">10</text>
+            <polygon class="district-node__cell" points="86.5,189.5 72.2,215.8 70.3,220.5 64.5,320.7 239.4,335.1 249.2,326.7 249.8,300.7 87.7,187.6" />
+            <text class="district-node__label" x="141.6" y="278.2">10</text>
           </g>
 
           <g class="district-node district-node--filed" data-district="11" tabindex="0" role="button" aria-label="Distrito 11: Agricultura. Ver expediente.">
-            <circle class="district-node__circle" cx="118.1" cy="195.0" r="40" />
-            <text class="district-node__label" x="118.1" y="195.0">11</text>
+            <polygon class="district-node__cell" points="87.7,187.6 102.6,163.2 121.6,137.3 146.1,114.2 151.3,111.1 278.6,256.6 249.8,300.7" />
+            <circle class="district-node__badge" cx="182.6" cy="206.0" r="17" />
+            <use class="district-node__icon" href="#icon-agricultura" x="170.6" y="194.0" width="24" height="24" />
           </g>
 
           <g class="district-node district-node--filed" data-district="12" tabindex="0" role="button" aria-label="Distrito 12: Minería de carbón. Ver expediente.">
-            <circle class="district-node__circle" cx="195.0" cy="118.1" r="40" />
-            <text class="district-node__label" x="195.0" y="118.1">12</text>
+            <polygon class="district-node__cell" points="278.2,67.9 275.7,66.8 246.3,74.5 210.9,83.9 176.6,96.3 151.3,111.1 278.6,256.6 293.9,248.5" />
+            <circle class="district-node__badge" cx="239.9" cy="147.5" r="17" />
+            <use class="district-node__icon" href="#icon-mineria" x="227.9" y="135.5" width="24" height="24" />
           </g>
 
           <a href="/capitolio/" class="capitol-node" aria-label="Ir a El Capitolio">
             <title>El Capitolio</title>
-            <circle class="capitol-node__ring" cx="300" cy="300" r="72" />
-            <circle class="capitol-node__circle" cx="300" cy="300" r="52" />
-            <text class="capitol-node__icon" x="300" y="300">◈</text>
+            <polygon class="capitol-node__cell" points="249.8,300.7 278.6,256.6 293.9,248.5 339.9,245.3 384.4,280.2 392.7,298.3 392.9,300.3 388.8,312.9 333.6,365.0 323.0,365.3 249.2,326.7" />
+            <circle class="capitol-node__badge" cx="319.4" cy="302.4" r="20" />
+            <text class="capitol-node__icon" x="319.4" y="302.4">◈</text>
           </a>
         </svg>
 

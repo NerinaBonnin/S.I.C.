@@ -659,12 +659,13 @@
       "mensaje": "Mantenimiento programado en el sistema de monitoreo biométrico, sala de control principal."
     }
   ],
-  "distritos": [
+"distritos": [
     {
       "id": 12,
       "nombre": "Distrito 12",
       "region": "Antigua Appalachia",
       "especialidad": "Minería de carbón",
+      "icono": "mineria",
       "historia": "El distrito más pobre y menos poblado de Panem, encargado de extraer el carbón que alimenta la industria energética del Capitolio. Vigilancia históricamente laxa antes del 74° Juego.",
       "vencedoresHistoricos": ["Haymitch Abernathy", "Katniss Everdeen", "Peeta Mellark"]
     },
@@ -673,6 +674,7 @@
       "nombre": "Distrito 2",
       "region": "Antiguas Montañas Rocosas",
       "especialidad": "Cantería, armamento y entrenamiento militar",
+      "icono": "militar",
       "historia": "Sede del Centro de Adiestramiento profesional y aliado histórico del Capitolio. Sus tributos suelen presentarse como voluntarios entrenados desde la niñez.",
       "vencedoresHistoricos": ["Cato", "Enobaria", "Brutus"]
     },
@@ -681,6 +683,7 @@
       "nombre": "Distrito 11",
       "region": "Antiguo sureste de EE. UU.",
       "especialidad": "Agricultura",
+      "icono": "agricultura",
       "historia": "El distrito más extenso de Panem, responsable de la producción agrícola que abastece al Capitolio. Sometido a una vigilancia particularmente estricta.",
       "vencedoresHistoricos": ["Chaff", "Seeder"]
     }
