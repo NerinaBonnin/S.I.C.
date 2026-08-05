@@ -1,5 +1,18 @@
 import { escapeHTML } from '../utils/dom.js';
 
+/** Mapea el campo `icono` del distrito -> id del <symbol> definido en el mapa SVG. */
+const ICON_SYMBOLS = {
+  mineria: 'icon-mineria',
+  militar: 'icon-militar',
+  agricultura: 'icon-agricultura',
+};
+
+function buildIconMarkup(icono) {
+  const symbolId = ICON_SYMBOLS[icono];
+  if (!symbolId) return '';
+  return `<svg class="district-modal__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#${symbolId}"></use></svg>`;
+}
+
 /**
  * Genera el markup de la ficha completa de un distrito (cuando sí hay datos
  * cargados en panemData.json).
@@ -11,6 +24,7 @@ export function buildDistrictFichaMarkup(distrito) {
 
   return `
     <header class="district-modal__header">
+      ${buildIconMarkup(distrito.icono)}
       <h3>${escapeHTML(distrito.nombre)}</h3>
       <span class="data-label">${escapeHTML(distrito.region)}</span>
     </header>

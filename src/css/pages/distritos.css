@@ -2,10 +2,15 @@
   PÁGINA: Distritos
    ========================================================================== */
 
-/* ---- Mapa SVG ---------------------------------------------------------- */
+/* ---- Mapa SVG ------------------------------------------------------------
+  Mapa original propio (no calcado de ninguna imagen): un contorno orgánico
+  generado con ruido senoidal, dividido en 12 regiones + el Capitolio
+  mediante un diagrama de Voronoi recortado contra ese contorno. Las piezas
+  encajan como un rompecabezas, sin huecos ni superposiciones.
+   ========================================================================== */
 .district-map-wrapper {
   max-width: 560px;
-  margin: 0 auto var(--space-10);
+  margin: 0 auto var(--space-8);
   padding-inline: var(--space-5);
 }
 
@@ -15,37 +20,15 @@
   height: auto;
 }
 
-.district-map__radar-ring {
-  fill: none;
-  stroke: var(--glass-border);
-  stroke-width: 1;
-  stroke-dasharray: 3 9;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: district-radar-spin 50s linear infinite;
-}
-
-@keyframes district-radar-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.district-map__links line {
-  stroke: var(--glass-border);
-  stroke-width: 1;
-  opacity: 0.5;
-}
-
-/* ---- Nodo de distrito --------------------------------------------------- */
+/* ---- Celda de distrito --------------------------------------------------- */
 .district-node {
   cursor: pointer;
 }
 
-.district-node__circle {
-  fill: rgba(10, 65, 116, 0.3);
-  stroke: rgba(123, 189, 232, 0.35);
-  stroke-width: 1.5;
+.district-node__cell {
+  fill: rgba(10, 65, 116, 0.35);
+  stroke: rgba(123, 189, 232, 0.3);
+  stroke-width: 2;
   transform-box: fill-box;
   transform-origin: center;
   transition: stroke var(--transition-fast), fill var(--transition-fast),
@@ -54,7 +37,7 @@
 
 .district-node__label {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 26px;
   fill: var(--color-text);
   text-anchor: middle;
   dominant-baseline: central;
@@ -62,24 +45,29 @@
   user-select: none;
 }
 
-/* Distritos con expediente cargado: más brillantes, para distinguirlos a
-   simple vista de los que todavía no tienen datos. */
-.district-node--filed .district-node__circle {
-  fill: rgba(123, 189, 232, 0.18);
+/* Distritos con expediente cargado: además del número, muestran su ícono de
+   especialidad dentro de una placa, para distinguirse a simple vista de los
+   que todavía no tienen datos. */
+.district-node--filed .district-node__cell {
+  fill: rgba(123, 189, 232, 0.14);
   stroke: var(--color-accent);
-  stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(123, 189, 232, 0.45));
 }
 
-.district-node--filed .district-node__label {
-  fill: var(--color-text-bright);
+.district-node__badge {
+  fill: var(--color-bg-void);
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
 }
 
-.district-node:hover .district-node__circle,
-.district-node:focus-visible .district-node__circle {
+.district-node__icon {
+  color: var(--color-accent);
+}
+
+.district-node:hover .district-node__cell,
+.district-node:focus-visible .district-node__cell {
   stroke: var(--color-accent);
-  filter: drop-shadow(0 0 10px rgba(123, 189, 232, 0.6));
-  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(123, 189, 232, 0.55));
+  transform: scale(1.08);
 }
 
 /* ---- Nodo central: El Capitolio ------------------------------------------ */
@@ -87,14 +75,8 @@
   cursor: pointer;
 }
 
-.capitol-node__ring {
-  fill: none;
-  stroke: var(--glass-border);
-  stroke-width: 1;
-}
-
-.capitol-node__circle {
-  fill: rgba(123, 189, 232, 0.14);
+.capitol-node__cell {
+  fill: rgba(123, 189, 232, 0.16);
   stroke: var(--color-accent);
   stroke-width: 2;
   transform-box: fill-box;
@@ -102,25 +84,25 @@
   transition: filter var(--transition-fast), transform var(--transition-fast);
 }
 
+.capitol-node__badge {
+  fill: var(--color-bg-void);
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+}
+
 .capitol-node__icon {
-  font-size: 32px;
+  font-family: var(--font-display);
+  font-size: 22px;
   fill: var(--color-accent);
   text-anchor: middle;
   dominant-baseline: central;
-  pointer-events: none;
   user-select: none;
 }
 
-.capitol-node:hover .capitol-node__circle,
-.capitol-node:focus-visible .capitol-node__circle {
-  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.65));
+.capitol-node:hover .capitol-node__cell,
+.capitol-node:focus-visible .capitol-node__cell {
+  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.6));
   transform: scale(1.06);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .district-map__radar-ring {
-    animation: none;
-  }
 }
 
 /* ---- Leyenda ------------------------------------------------------------- */
@@ -221,10 +203,21 @@
 
 .district-modal__header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-2);
+}
+
+.district-modal__icon {
+  width: 30px;
+  height: 30px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.district-modal__header h3 {
+  margin-right: auto;
 }
 
 .district-modal__desc {
