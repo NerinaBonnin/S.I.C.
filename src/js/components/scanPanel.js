@@ -1,3 +1,4 @@
+// Importamos la funcion escapeHTML del archivo dom.js
 import { escapeHTML } from '../utils/dom.js';
 
 /**
@@ -12,6 +13,8 @@ import { escapeHTML } from '../utils/dom.js';
  *   (degradado sin foto), sin importar si el tributo tiene `imagen` cargada.
  * @returns {string} HTML string
  */
+
+// Genera el HTML del panel de escaneo de un tributo. Si el tributo tiene una imagen, la muestra; Si no tiene imagen, deja visible el fondo de gradado definido por CSS
 export function buildScanPanelMarkup(tributo, label = 'FEED EN VIVO', { showImage = true } = {}) {
   const imgTag = showImage && tributo.imagen
     ? `<img src="${escapeHTML(tributo.imagen)}" alt="" data-img-fallback loading="lazy" />`
