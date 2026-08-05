@@ -1,3 +1,4 @@
+// Importamos la funcion escapeHTML del archivo dom.js
 import { escapeHTML } from '../utils/dom.js';
 
 /**
@@ -8,6 +9,8 @@ import { escapeHTML } from '../utils/dom.js';
  * @param {object} tributo
  * @returns {string} HTML string
  */
+
+// Lo que hace esta funcion es definir el ritmo cardiacp, la temperatura y presion para cada distrito y despues de eso filtran solamente para que aparezcan los tributos vencedores y para retornar toman elementos HTML y los transforman para que aparezcan en la pantalla del Dashboard.
 export function buildBiometricFichaMarkup(tributo) {
   const { ritmoCardiaco, temperaturaF, presion } = tributo.signosVitales ?? {};
   const badgeClass = tributo.estado === 'Vencedor' ? 'badge--success' : 'badge--danger';
