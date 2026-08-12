@@ -1,12 +1,12 @@
 /* ==========================================================================
-  PÁGINA: Distritos
+   PÁGINA: Distritos
    ========================================================================== */
 
 /* ---- Mapa SVG ------------------------------------------------------------
-  Mapa original propio (no calcado de ninguna imagen): un contorno orgánico
-  generado con ruido senoidal, dividido en 12 regiones + el Capitolio
-  mediante un diagrama de Voronoi recortado contra ese contorno. Las piezas
-  encajan como un rompecabezas, sin huecos ni superposiciones.
+   Diseño original: 12 distritos en círculo alrededor del Capitolio, unidos
+   por líneas finas (efecto "red neuronal/holograma"), con un anillo tipo
+   radar girando de fondo. Todo generado a mano en el HTML, sin depender de
+   ninguna imagen externa.
    ========================================================================== */
 .district-map-wrapper {
   max-width: 560px;
@@ -20,15 +20,43 @@
   height: auto;
 }
 
-/* ---- Celda de distrito --------------------------------------------------- */
+.district-map__radar-ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  stroke-dasharray: 3 9;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: district-radar-spin 50s linear infinite;
+}
+
+@keyframes district-radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.district-map__links line {
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .district-map__radar-ring {
+    animation: none;
+  }
+}
+
+/* ---- Nodo de distrito ------------------------------------------------- */
 .district-node {
   cursor: pointer;
 }
 
-.district-node__cell {
-  fill: rgba(10, 65, 116, 0.35);
-  stroke: rgba(123, 189, 232, 0.3);
-  stroke-width: 2;
+.district-node__circle {
+  fill: rgba(10, 65, 116, 0.3);
+  stroke: rgba(123, 189, 232, 0.35);
+  stroke-width: 1.5;
   transform-box: fill-box;
   transform-origin: center;
   transition: stroke var(--transition-fast), fill var(--transition-fast),
@@ -37,7 +65,7 @@
 
 .district-node__label {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 28px;
   fill: var(--color-text);
   text-anchor: middle;
   dominant-baseline: central;
@@ -48,8 +76,8 @@
 /* Distritos con expediente cargado: además del número, muestran su ícono de
    especialidad dentro de una placa, para distinguirse a simple vista de los
    que todavía no tienen datos. */
-.district-node--filed .district-node__cell {
-  fill: rgba(123, 189, 232, 0.14);
+.district-node--filed .district-node__circle {
+  fill: rgba(123, 189, 232, 0.18);
   stroke: var(--color-accent);
 }
 
@@ -63,11 +91,39 @@
   color: var(--color-accent);
 }
 
-.district-node:hover .district-node__cell,
-.district-node:focus-visible .district-node__cell {
+.district-node:hover .district-node__circle,
+.district-node:focus-visible .district-node__circle {
   stroke: var(--color-accent);
   filter: drop-shadow(0 0 10px rgba(123, 189, 232, 0.55));
-  transform: scale(1.08);
+  transform: scale(1.1);
+}
+
+/* ---- Espacio para el logo real de cada distrito ---------------------------
+   Cada distrito ya tiene un lugar reservado para su propio logo: un <image>
+   apuntando a public/assets/img/distritos/distrito-N.png. Mientras ese
+   archivo no exista, el <image> nunca "carga" y el fallback (ícono de
+   especialidad o número, definidos arriba) se queda visible tal cual está
+   hoy. En cuanto subís el archivo correcto, JS lo detecta (evento 'load')
+   y hace la transición automáticamente — ver initLogoFallbacks en distritos.js. */
+.district-node__logo,
+.capitol-node__logo {
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.district-node__logo.is-loaded,
+.capitol-node__logo.is-loaded {
+  opacity: 1;
+}
+
+.district-node__fallback,
+.capitol-node__fallback {
+  transition: opacity var(--transition-base);
+}
+
+.district-node__fallback.is-hidden,
+.capitol-node__fallback.is-hidden {
+  opacity: 0;
 }
 
 /* ---- Nodo central: El Capitolio ------------------------------------------ */
@@ -75,13 +131,19 @@
   cursor: pointer;
 }
 
-.capitol-node__cell {
-  fill: rgba(123, 189, 232, 0.16);
+.capitol-node__circle {
+  fill: rgba(123, 189, 232, 0.14);
   stroke: var(--color-accent);
   stroke-width: 2;
   transform-box: fill-box;
   transform-origin: center;
   transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.capitol-node__ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
 }
 
 .capitol-node__badge {
@@ -99,9 +161,9 @@
   user-select: none;
 }
 
-.capitol-node:hover .capitol-node__cell,
-.capitol-node:focus-visible .capitol-node__cell {
-  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.6));
+.capitol-node:hover .capitol-node__circle,
+.capitol-node:focus-visible .capitol-node__circle {
+  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.65));
   transform: scale(1.06);
 }
 

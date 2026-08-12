@@ -1,56 +1,63 @@
+import { escapeHTML } from '../utils/dom.js';
+
+/** Mapea el campo `icono` del distrito -> id del <symbol> definido en el mapa SVG. */
+const ICON_SYMBOLS = {
+  mineria: 'icon-mineria',
+  militar: 'icon-militar',
+  agricultura: 'icon-agricultura',
+};
+
+function buildIconMarkup(icono) {
+  const symbolId = ICON_SYMBOLS[icono];
+  if (!symbolId) return '';
+  return `<svg class="district-modal__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#${symbolId}"></use></svg>`;
+}
+
 /**
- * Renderiza la ficha tecnica del distrito seleccionado dentro del panel lateral
- * @param {HTMLElement} container - Contenedor donde se inserta el panel de detalles
- * @param {Object} district - Objeto con los datos del distrito extraidos del JSON
- * @param {Array} victors - Lista de vencedores asociados a este distrito
+ * Genera el markup de la ficha completa de un distrito (cuando sí hay datos
+ * cargados en panemData.json).
+ * @param {object} distrito
+ * @returns {string} HTML string
  */
+export function buildDistrictFichaMarkup(distrito) {
+  const vencedores = distrito.vencedoresHistoricos ?? [];
 
-export function renderDistrictFicha(container, district, victors = []){
-  if (!district) return;
+  return `
+    <header class="district-modal__header">
+      ${buildIconMarkup(distrito.icono)}
+      <h3>${escapeHTML(distrito.nombre)}</h3>
+      <span class="data-label">${escapeHTML(distrito.region)}</span>
+    </header>
 
-  const victorsListHtml = victors.length > 0
-  ? victors.map(v =>`<li class="victor-tag">${v.nombre} (Edición ${v.edicion})</li>`).join('')
-    : '<li class="no-victors">SIN REGISTRO DE VENCEDORES</li>';
+    <p class="data-label">Especialidad: ${escapeHTML(distrito.especialidad)}</p>
 
-  container.innerHTML = `
-    <div class="hud-card district-card-detail">
-      <!-- Esquinas decorativas Sci-Fi -->
-      <div class="corner-bracket top-left"></div>
-      <div class="corner-bracket top-right"></div>
-      <div class="corner-bracket bottom-left"></div>
-      <div class="corner-bracket bottom-right"></div>
+    <p class="district-modal__desc">${escapeHTML(distrito.historia)}</p>
 
-      <div class="district-card-header">
-        <span class="hud-badge">SECTOR TERRITORIAL</span>
-        <h2 class="district-name">DISTRITO ${district.id}</h2>
-        <h3 class="district-industry">// ${district.especialidad.toUpperCase()}</h3>
-      </div>
-
-      <div class="hud-divider"></div>
-
-      <div class="district-card-body">
-        <div class="info-group">
-          <label>POBLACIÓN ESTIMADA</label>
-          <p>${district.poblacion || 'Clasificada'}</p>
-        </div>
-
-        <div class="info-group">
-          <label>DESCRIPCIÓN OPERATIVA</label>
-          <p class="district-description">${district.descripcion}</p>
-        </div>
-
-        <div class="info-group">
-          <label>VENCEDORES HISTÓRICOS REGISTRADOS</label>
-          <ul class="victors-list">
-            ${victorsListHtml}
-          </ul>
-        </div>
-      </div>
-
-      <div class="district-card-footer">
-        <span class="status-indicator active"></span>
-        <span class="status-text">ESTADO: PRODUCCIÓN ACTIVA</span>
-      </div>
+    <div class="district-modal__winners">
+      <p class="data-label">Vencedores históricos</p>
+      ${
+        vencedores.length > 0
+          ? `<ul>${vencedores.map((nombre) => `<li>${escapeHTML(nombre)}</li>`).join('')}</ul>`
+          : '<p>No hay vencedores registrados para este distrito.</p>'
+      }
     </div>
+  `;
+}
+
+/**
+ * Genera el markup de respaldo cuando un distrito todavía no tiene expediente
+ * cargado en el sistema (la mayoría, por ahora: solo 2, 11 y 12 tienen datos).
+ * @param {number} id
+ * @returns {string} HTML string
+ */
+export function buildMissingDistrictMarkup(id) {
+  return `
+    <header class="district-modal__header">
+      <h3>Distrito ${escapeHTML(id)}</h3>
+    </header>
+    <p class="data-label">Expediente no disponible</p>
+    <p class="district-modal__desc">
+      Este distrito todavía no tiene un expediente cargado en el sistema central.
+    </p>
   `;
 }
