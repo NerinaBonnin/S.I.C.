@@ -13,6 +13,8 @@ export function initDistrictMap(selector, { onSelect } = {}) {
 
   root.querySelectorAll('[data-district]').forEach((node) => {
     const id = Number(node.dataset.district);
+    node.classList.add('district-node--filed');
+    node.setAttribute('aria-label', `Distrito ${id}: abrir expediente`);
 
     const trigger = () => onSelect?.(id, node);
 

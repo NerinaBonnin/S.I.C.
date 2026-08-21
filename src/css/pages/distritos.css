@@ -1,12 +1,12 @@
 /* ==========================================================================
-  PÁGINA: Distritos
+   PÁGINA: Distritos
    ========================================================================== */
 
 /* ---- Mapa SVG ------------------------------------------------------------
-  Mapa original propio (no calcado de ninguna imagen): un contorno orgánico
-  generado con ruido senoidal, dividido en 12 regiones + el Capitolio
-  mediante un diagrama de Voronoi recortado contra ese contorno. Las piezas
-  encajan como un rompecabezas, sin huecos ni superposiciones.
+   Diseño original: 12 distritos en círculo alrededor del Capitolio, unidos
+   por líneas finas (efecto "red neuronal/holograma"), con un anillo tipo
+   radar girando de fondo. Todo generado a mano en el HTML, sin depender de
+   ninguna imagen externa.
    ========================================================================== */
 .district-map-wrapper {
   max-width: 560px;
@@ -20,15 +20,52 @@
   height: auto;
 }
 
-/* ---- Celda de distrito --------------------------------------------------- */
+.district-map__radar-ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  stroke-dasharray: 3 9;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: district-radar-spin 50s linear infinite;
+}
+
+@keyframes district-radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.district-map__links line {
+  stroke: var(--glass-border);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .district-map__radar-ring {
+    animation: none;
+  }
+}
+
+/* ---- Nodo de distrito ------------------------------------------------- */
 .district-node {
   cursor: pointer;
 }
 
-.district-node__cell {
-  fill: rgba(10, 65, 116, 0.35);
-  stroke: rgba(123, 189, 232, 0.3);
-  stroke-width: 2;
+/* El foco global dibuja un rectángulo alrededor del grupo SVG. En este mapa
+   la indicación de foco se muestra sobre el círculo mediante el glow de abajo. */
+.district-node,
+.district-node:focus,
+.district-node:focus-visible {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.district-node__circle {
+  fill: rgba(10, 65, 116, 0.3);
+  stroke: rgba(123, 189, 232, 0.35);
+  stroke-width: 1.5;
   transform-box: fill-box;
   transform-origin: center;
   transition: stroke var(--transition-fast), fill var(--transition-fast),
@@ -37,7 +74,7 @@
 
 .district-node__label {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 28px;
   fill: var(--color-text);
   text-anchor: middle;
   dominant-baseline: central;
@@ -48,8 +85,8 @@
 /* Distritos con expediente cargado: además del número, muestran su ícono de
    especialidad dentro de una placa, para distinguirse a simple vista de los
    que todavía no tienen datos. */
-.district-node--filed .district-node__cell {
-  fill: rgba(123, 189, 232, 0.14);
+.district-node--filed .district-node__circle {
+  fill: rgba(123, 189, 232, 0.18);
   stroke: var(--color-accent);
 }
 
@@ -63,11 +100,60 @@
   color: var(--color-accent);
 }
 
-.district-node:hover .district-node__cell,
-.district-node:focus-visible .district-node__cell {
+.district-node:hover .district-node__circle,
+.district-node:focus-visible .district-node__circle {
   stroke: var(--color-accent);
   filter: drop-shadow(0 0 10px rgba(123, 189, 232, 0.55));
-  transform: scale(1.08);
+  transform: scale(1.1);
+}
+
+/* ---- Espacio para el logo real de cada distrito ---------------------------
+   Cada distrito ya tiene un lugar reservado para su propio logo: un <image>
+   apuntando a public/assets/img/distritos/distrito-N.png. Mientras ese
+   archivo no exista, el <image> nunca "carga" y el fallback (ícono de
+   especialidad o número, definidos arriba) se queda visible tal cual está
+   hoy. En cuanto subís el archivo correcto, JS lo detecta (evento 'load')
+   y hace la transición automáticamente — ver initLogoFallbacks en distritos.js. */
+.capitol-node__logo {
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.district-node__logo {
+  /* Cada imagen llena por completo el nodo circular del mapa. */
+  opacity: 1;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(2.36);
+  clip-path: circle(48%);
+  filter: drop-shadow(0 0 6px rgba(189, 216, 233, 0.55));
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.district-node__logo.is-loaded,
+.capitol-node__logo.is-loaded {
+  opacity: 1;
+}
+
+/* Los emblemas recibidos ocupan la misma jerarquía visual que el referente. */
+.district-node:hover .district-node__logo,
+.district-node:focus-visible .district-node__logo {
+  filter: drop-shadow(0 0 11px rgba(123, 189, 232, 0.9));
+}
+
+.district-node__fallback {
+  opacity: 0;
+}
+
+.district-node__fallback,
+.capitol-node__fallback {
+  transition: opacity var(--transition-base);
+}
+
+.district-node__fallback.is-hidden,
+.capitol-node__fallback.is-hidden {
+  opacity: 0;
 }
 
 /* ---- Nodo central: El Capitolio ------------------------------------------ */
@@ -75,13 +161,19 @@
   cursor: pointer;
 }
 
-.capitol-node__cell {
-  fill: rgba(123, 189, 232, 0.16);
+.capitol-node__circle {
+  fill: rgba(123, 189, 232, 0.14);
   stroke: var(--color-accent);
   stroke-width: 2;
   transform-box: fill-box;
   transform-origin: center;
   transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.capitol-node__ring {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 1;
 }
 
 .capitol-node__badge {
@@ -99,9 +191,9 @@
   user-select: none;
 }
 
-.capitol-node:hover .capitol-node__cell,
-.capitol-node:focus-visible .capitol-node__cell {
-  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.6));
+.capitol-node:hover .capitol-node__circle,
+.capitol-node:focus-visible .capitol-node__circle {
+  filter: drop-shadow(0 0 14px rgba(123, 189, 232, 0.65));
   transform: scale(1.06);
 }
 
@@ -209,6 +301,59 @@
   margin-bottom: var(--space-2);
 }
 
+.district-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.district-modal__camera-frame {
+  position: relative;
+  aspect-ratio: 1.05;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(20, 100, 164, 0.55), rgba(0, 21, 43, 0.7));
+  border: 1px solid rgba(123, 189, 232, 0.45);
+  border-radius: var(--radius-sm);
+}
+
+.district-modal__camera-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 48%, rgba(0, 19, 39, 0.56));
+}
+
+.district-modal__camera-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+}
+
+.district-modal__camera-frame figcaption {
+  position: absolute;
+  z-index: 1;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-bright);
+}
+
+.district-modal__logo {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  clip-path: circle(48%);
+  flex: 0 0 92px;
+}
+
+.district-modal__title h3 { margin-bottom: var(--space-1); }
+.district-modal__specialty { margin-bottom: var(--space-2); }
+
 .district-modal__icon {
   width: 30px;
   height: 30px;
@@ -240,6 +385,39 @@
   color: var(--color-text-bright);
 }
 
+.district-modal__affection { margin-top: var(--space-5); }
+
+.district-modal__affection > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.district-modal__affection span {
+  padding: 2px var(--space-2);
+  color: var(--color-accent);
+  border: 1px solid var(--glass-border-strong);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+
+.district-modal__meter {
+  height: 8px;
+  overflow: hidden;
+  background: rgba(0, 13, 26, 0.75);
+  border: var(--border-thin);
+  border-radius: 99px;
+}
+
+.district-modal__meter i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #d4f1ff);
+  box-shadow: var(--glow-sm);
+}
+
 @keyframes district-modal-in {
   from {
     opacity: 0;
@@ -255,4 +433,9 @@
   .district-modal[open] {
     animation: none;
   }
+}
+
+@media (max-width: 520px) {
+  .district-map-wrapper { padding-inline: 0; }
+  .district-modal #district-modal-content { padding: var(--space-4); }
 }
