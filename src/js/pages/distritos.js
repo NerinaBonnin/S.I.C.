@@ -7,7 +7,8 @@
 import panemData from '../../data/panemData.json';
 import { initDistrictMap } from '../components/districtMap.js';
 import { initDistrictModal, openDistrictModal } from '../components/districtModal.js';
-import { attachLogoFallback } from '../utils/dom.js';
+import { getDistrictRecord } from '../components/districtFicha.js';
+import { attachImageFallback, attachLogoFallback } from '../utils/dom.js';
 
 const { distritos } = panemData;
 
@@ -16,7 +17,8 @@ attachLogoFallback(document.querySelector('#district-map'));
 
 initDistrictMap('#district-map', {
   onSelect: (id, triggerEl) => {
-    const distrito = distritos.find((d) => d.id === id);
+    const distrito = getDistrictRecord(id, distritos.find((d) => d.id === id));
     openDistrictModal(distrito, id, triggerEl);
+    attachImageFallback(document.querySelector('#district-modal-content'));
   },
 });

@@ -1,4 +1,4 @@
-import { buildDistrictFichaMarkup, buildMissingDistrictMarkup } from './districtFicha.js';
+import { buildDistrictFichaMarkup } from './districtFicha.js';
 
 let dialogEl = null;
 let contentEl = null;
@@ -49,7 +49,7 @@ export function openDistrictModal(distrito, id, triggerEl) {
     <div class="district-modal__toolbar">
       <button type="button" class="district-modal__close" data-close-modal aria-label="Cerrar expediente">✕</button>
     </div>
-    ${distrito ? buildDistrictFichaMarkup(distrito) : buildMissingDistrictMarkup(id)}
+    ${distrito ? buildDistrictFichaMarkup(distrito) : ''}
   `;
 
   contentEl.querySelector('[data-close-modal]')?.addEventListener('click', () => dialogEl.close());
