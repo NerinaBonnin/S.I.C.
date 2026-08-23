@@ -62,6 +62,9 @@
                simples que representan cada especialidad. Reutilizados también
                en el modal vía <use href="#icon-...">. -->
           <defs>
+            <clipPath id="capitol-logo-clip">
+              <circle cx="300" cy="300" r="52" />
+            </clipPath>
             <symbol id="icon-mineria" viewBox="0 0 24 24">
               <path d="M3 19 L9 8 L12 13 L15 6 L21 19 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
             </symbol>
@@ -198,7 +201,7 @@
             <g class="capitol-node__fallback">
               <text class="capitol-node__icon" x="300" y="300">◈</text>
             </g>
-            <image class="capitol-node__logo" data-logo-fallback href="/assets/img/distritos/capitolio.png" x="278" y="278" width="44" height="44" />
+            <image class="capitol-node__logo" data-logo-fallback clip-path="url(#capitol-logo-clip)" preserveAspectRatio="xMidYMid slice" href="/assets/img/distritos/capitolio.jpg" x="248" y="248" width="104" height="104" />
           </a>
         </svg>
 

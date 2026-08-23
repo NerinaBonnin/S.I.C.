@@ -115,7 +115,8 @@
    hoy. En cuanto subís el archivo correcto, JS lo detecta (evento 'load')
    y hace la transición automáticamente — ver initLogoFallbacks en distritos.js. */
 .capitol-node__logo {
-  opacity: 0;
+  /* Debe seguir visible cuando el navegador restaura esta página desde el historial. */
+  opacity: 1;
   transition: opacity var(--transition-base);
 }
 
