@@ -47,3 +47,5 @@ página a propósito, para que la navegación no dependa de que el JS cargue.
       hover, ícono por especialidad y expediente modal
 - [ ] Contenido real de `/capitolio` (hoy es un placeholder)
 - [ ] Contenido real de `/juegos` (hoy es un placeholder)
+
+# PAUSA INTERMITENTE VOY A REFACTORIZAR EL CODIGO
